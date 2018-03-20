@@ -3,19 +3,15 @@
 <mapper namespace="com.bridge.dao.UserDao">
     <resultMap id="userMapper" type="com.bridge.entity.User">
         <id column="id" jdbcType="INTEGER" property="userId" />
-        <association column="icon_id" property="icon" select="com.bridge.dao.ImageDao.findById"></association>
     </resultMap>
     <insert id="insert" parameterType="com.bridge.entity.User">
-        insert into tb_user(user_name, email, password, icon_id)
-        values (#{userName,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{password,jdbcType=CHAR}, #{icon.id})
+        insert into tb_user(user_name, password, phone)
+        values (#{userName,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{phone,jdbcType=CHAR}
     </insert>
     <select id="findById" parameterType="Integer" resultMap="userMapper">
         select * from tb_user where id = #{param}
     </select>
     <select id="findUserByName" parameterType="String" resultMap="userMapper">
         select * from tb_user where user_name = #{param}
-    </select>
-    <select id="findUserByEmail" parameterType="String" resultMap="userMapper">
-        select * from tb_user where email = #{param}
     </select>
 </mapper>

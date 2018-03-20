@@ -20,17 +20,15 @@
 <body>
 <div class="container">
     <form class="form-signin" method="post" onsubmit="return;">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="username_or_email" class="sr-only">Email address</label>
-        <input type="text" id="username_or_email" class="form-control" placeholder="用户名和邮箱" required autofocus>
-        <label for="password" class="sr-only">密码</label>
+        <h5 class="form-signin-heading" style="color: red;"></h5>
+        <input type="text" id="username" class="form-control" placeholder="用户名" required autofocus>
         <input type="password" id="password" class="form-control" placeholder="密码" required>
         <div class="checkbox">
             <label>
-                <input type="checkbox" value="remember-me"> Remember me
+                <input type="checkbox" value="remember-me"> 记住密码
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="submit">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</button>
     </form>
 
 </div>

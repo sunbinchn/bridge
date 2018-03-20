@@ -1,22 +1,25 @@
 // document.getElementById("name").focus();
 $(function () {
     $("#submit").click(function(){
-        var userNameOrEmail = $("#username_or_email").val();
+        var username = $("#username").val();
         var password = $("#password").val();
-        var data = 'userNameOrEmail=' + userNameOrEmail + '&' + 'password=' + password;
+        if (!(username && password)){ //用户名或密码为空
+            $('.form-signin-heading').text('用户名或密码不能为空');
+            return;
+        }
+        var data = 'userName=' + username + '&' + 'password=' + password;
         $.ajax({
             url: "/bridge/login/signin",
             type: "post",
             data: data,
             success: function (result) {
                 if (result.success) {
-                    window.location.href = '/bridge/index.html'
+                    window.location.href = '/bridge/home/index.html'
+                } else {
+                    $('.form-signin-heading').text(result.message);
                 }
-            },
+            }
         });
         return false;
     })
-    // function login() {
-    //
-    // }
 });

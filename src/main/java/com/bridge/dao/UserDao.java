@@ -8,7 +8,5 @@ public interface UserDao {
 
     User findUserByName(String userName);
 
-    User findUserByEmail(String email);
-
     User findById(Integer id);
 }

@@ -5,6 +5,7 @@ import com.bridge.service.UserService;
 import com.bridge.vo.result.BaseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,16 +33,11 @@ public class UserController {
             result.setMessage("用户名或密码不能为空");
             return result;
         }
-        User findUser = userService.findUserByName(user.getUserNameOrEmail());
-        if (findUser == null) {
-            findUser = userService.findUserByEmail(user.getUserNameOrEmail());
-        }
+        User findUser = userService.findUserByName(user.getUserName());
         if (findUser != null) {
             if (findUser.getPassword().equals(user.getPassword())) {
                 result.setSuccess(true);
-                request.getSession().setAttribute("username", findUser.getUserName());
-                request.getSession().setAttribute("email", findUser.getEmail());
-                request.getSession().setAttribute("userIcon", findUser.getIcon().getUrl());
+                request.getSession().setAttribute("userName", findUser.getUserName());
                 request.getSession().setAttribute("userId", findUser.getUserId());
             } else {
                 result.setSuccess(false);
