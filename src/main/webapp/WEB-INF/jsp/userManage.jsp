@@ -43,7 +43,17 @@
                                     <td>${userItem.userName}</td>
                                     <td>${userItem.phone}</td>
                                     <td>${userItem.email}</td>
-                                    <td>${userItem.role}</td>
+                                    <c:choose>
+                                        <c:when test="${userItem.role eq 2}">
+                                            <td>超级管理员</td>
+                                        </c:when>
+                                        <c:when test="${userItem.role eq 1}">
+                                            <td>管理员</td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td>普通用户</td>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <td>${userItem.remark}</td>
                                     <td>
                                         <a href="" class="update-user">修改</a>
@@ -58,7 +68,17 @@
                                     <td>${userItem.userName}</td>
                                     <td>${userItem.phone}</td>
                                     <td>${userItem.email}</td>
-                                    <td>${userItem.role}</td>
+                                    <c:choose>
+                                        <c:when test="${userItem.role eq 2}">
+                                            <td>超级管理员</td>
+                                        </c:when>
+                                        <c:when test="${userItem.role eq 1}">
+                                            <td>管理员</td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td>普通用户</td>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <td>${userItem.remark}</td>
                                     <td>
                                         <a class="update-user">修改</a>
