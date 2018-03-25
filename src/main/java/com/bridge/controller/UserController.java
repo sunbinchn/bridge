@@ -5,7 +5,6 @@ import com.bridge.service.UserService;
 import com.bridge.vo.result.BaseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,10 +38,14 @@ public class UserController {
                 result.setSuccess(true);
                 request.getSession().setAttribute("userName", findUser.getUserName());
                 request.getSession().setAttribute("userId", findUser.getUserId());
+                request.getSession().setAttribute("role", findUser.getRole());
             } else {
                 result.setSuccess(false);
                 result.setMessage("用户名或密码错误");
             }
+        } else {
+            result.setSuccess(false);
+            result.setMessage("用户名或密码错误");
         }
         return result;
     }

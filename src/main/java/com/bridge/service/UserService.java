@@ -1,7 +1,6 @@
 package com.bridge.service;
 
 import com.bridge.dao.UserDao;
-import com.bridge.entity.Image;
 import com.bridge.entity.User;
 import com.bridge.vo.result.BaseResult;
 import org.springframework.beans.factory.annotation.Autowired;

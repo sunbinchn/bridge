@@ -14,4 +14,10 @@
     <select id="findUserByName" parameterType="String" resultMap="userMapper">
         select * from tb_user where user_name = #{param}
     </select>
+    <select id="findAllByRoleLevel" parameterType="Integer" resultMap="userMapper">
+        select id,user_name,phone,email,role,remark from tb_user where role <![CDATA[ < ]]> #{roleLevel}
+    </select>
+    <delete id="delete">
+        delete from tb_user where id = #{userId} and role <![CDATA[ < ]]>  ${roleLevel}
+    </delete>
 </mapper>
