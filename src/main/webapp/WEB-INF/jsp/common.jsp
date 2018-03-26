@@ -3,4 +3,5 @@
 <link href="${PATH}static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="${PATH}static/css/common.css" rel="stylesheet">
 <script src="${PATH}static/js/common.js"></script>
+<script src="${PATH}static/js/underscore.js"></script>
 <script src="${PATH}static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>

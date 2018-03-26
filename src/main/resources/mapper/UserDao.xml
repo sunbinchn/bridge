@@ -20,4 +20,13 @@
     <delete id="delete">
         delete from tb_user where id = #{userId} and role <![CDATA[ < ]]>  ${roleLevel}
     </delete>
+    <update id="update" parameterType="com.bridge.entity.User">
+        update tb_user set phone = #{phone},email=#{email},role=#{role},remark=#{remark} where id = #{userId};
+    </update>
+    <delete id="batchDelete" parameterType="java.util.List">
+        delete from tb_user where id in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+        #{item}
+        </foreach>
+    </delete>
 </mapper>

@@ -37,7 +37,7 @@
             <div id="collapseListGroup2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <button class="menu-item-left">
+                        <button class="menu-item-left" id="userManageButton">
                             <span class="glyphicon glyphicon-triangle-right"></span>用户管理
                         </button>
                     </li>

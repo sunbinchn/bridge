@@ -7,11 +7,10 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("userManage")
@@ -46,6 +45,39 @@ public class UserManageController {
         if (delete) {
             result.setSuccess(true);
             result.setMessage(String.valueOf(userId));
+        }
+        return result;
+    }
+    @RequestMapping("/batchDelete")
+    @ResponseBody
+    public BaseResult batchDelete(@RequestBody List<Integer> userList, HttpServletRequest request) {
+        BaseResult result = new BaseResult();
+        Integer level = (Integer)request.getSession().getAttribute("role");
+        if (level == 0) {
+            result.setSuccess(false);
+            result.setMessage("权限不足!");
+            return result;
+        }
+        boolean delete = userDao.batchDelete(userList);
+        if (delete) {
+            result.setSuccess(true);
+        }
+        return result;
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @ResponseBody
+    public BaseResult update(@RequestBody User user, HttpServletRequest request) {
+        BaseResult result = new BaseResult();
+        Integer role = (Integer)request.getSession().getAttribute("role");
+        if (role == 0 || role < user.getRole()) {
+            result.setSuccess(false);
+            result.setMessage("更新失败，权限不足!");
+            return result;
+        }
+        boolean update = userDao.update(user);
+        if (update) {
+            result.setSuccess(true);
         }
         return result;
     }

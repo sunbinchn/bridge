@@ -16,4 +16,8 @@ public interface UserDao {
     List<User> findAllByRoleLevel(@Param("roleLevel") Integer roleLevel);
 
     boolean delete(@Param("userId") Integer userId, @Param("roleLevel") Integer roleLevel);
+
+    boolean update(User user);
+
+    boolean batchDelete(List<Integer> userList);
 }

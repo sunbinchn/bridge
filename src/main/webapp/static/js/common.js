@@ -4,4 +4,7 @@ $(function(){
         $(this).find("span").toggleClass("glyphicon-chevron-down");
         $(this).find("span").toggleClass("glyphicon-chevron-up");
     });
+    $("#userManageButton").click(function() {
+        window.location.href = "/bridge/userManage/getAll";
+    });
 });
