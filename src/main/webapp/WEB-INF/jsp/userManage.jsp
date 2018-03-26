@@ -40,7 +40,7 @@
                             <c:when test="${status.count%2 eq 1}">
                                 <tr class="info" data-id="${userItem.userId}">
                                     <td><input type="checkbox"/></td>
-                                    <td>${status.count}</td>
+                                    <td>${status.count + (pageInfo.pageNum-1) * pageInfo.pageSize}</td>
                                     <td>${userItem.userName}</td>
                                     <td>${userItem.phone}</td>
                                     <td>${userItem.email}</td>
@@ -65,7 +65,7 @@
                             <c:otherwise>
                                 <tr data-id="${userItem.userId}">
                                     <td><input type="checkbox"/></td>
-                                    <td>${status.count}</td>
+                                    <td>${status.count + (pageInfo.pageNum-1) * pageInfo.pageSize}</td>
                                     <td>${userItem.userName}</td>
                                     <td>${userItem.phone}</td>
                                     <td>${userItem.email}</td>
