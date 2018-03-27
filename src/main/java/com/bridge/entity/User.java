@@ -4,6 +4,7 @@ package com.bridge.entity;
 public class User {
     private Integer userId;
     private String userName;
+    private String nickName;
     private String password;
     private String phone;
     private String email;
@@ -24,6 +25,14 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getPassword() {

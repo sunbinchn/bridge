@@ -7,4 +7,7 @@ $(function(){
     $("#userManageButton").click(function() {
         window.location.href = "/bridge/userManage/getAll";
     });
+    $("#userInfoButton").click(function() {
+        window.location.href = "/bridge/userInfo/index";
+    });
 });

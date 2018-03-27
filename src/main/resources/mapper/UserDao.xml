@@ -21,7 +21,10 @@
         delete from tb_user where id = #{userId} and role <![CDATA[ < ]]>  ${roleLevel}
     </delete>
     <update id="update" parameterType="com.bridge.entity.User">
-        update tb_user set phone = #{phone},email=#{email},role=#{role},remark=#{remark} where id = #{userId};
+        update tb_user set nick_name=#{nickName},phone = #{phone},email=#{email},role=#{role},remark=#{remark} where id = #{userId};
+    </update>
+    <update id="updatePassword" parameterType="com.bridge.entity.User">
+        update tb_user set password=#{password} where id = #{userId};
     </update>
     <delete id="batchDelete" parameterType="java.util.List">
         delete from tb_user where id in

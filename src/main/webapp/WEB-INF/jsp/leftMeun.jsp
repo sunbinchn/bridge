@@ -47,7 +47,7 @@
                         </button>
                     </li>
                     <li class="list-group-item">
-                        <button class="menu-item-left">
+                        <button class="menu-item-left" id="userInfoButton">
                             <span class="glyphicon glyphicon-triangle-right"></span>个人信息
                         </button>
                     </li>

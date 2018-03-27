@@ -20,4 +20,6 @@ public interface UserDao {
     boolean update(User user);
 
     boolean batchDelete(List<Integer> userList);
+
+    boolean updatePassword(User user);
 }
