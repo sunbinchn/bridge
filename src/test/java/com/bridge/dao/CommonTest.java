@@ -25,7 +25,7 @@ public class CommonTest {
     @Autowired
     private MonitorTypeDao monitorTypeDao;
     @Autowired
-    private SensorDao sensorDao;
+    private SensorTypeDao sensorTypeDao;
 
     @Test
     public void testFindById() {
@@ -33,7 +33,7 @@ public class CommonTest {
         MonitorData monitorData = monitorDataDao.findById(1);
         MonitorPoint monitorPoint = monitorPointDao.findById(1);
         MonitorType monitorType = monitorTypeDao.findById(1);
-        Sensor sensor = sensorDao.findById(1);
+        SensorType byId = sensorTypeDao.findById(1);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class CommonTest {
         List<MonitorData> monitorDataList = monitorDataDao.findAll();
         List<MonitorPoint> monitorPointList = monitorPointDao.findAll();
         List<MonitorType> monitorTypeList = monitorTypeDao.findAll();
-        List<Sensor> sensorList = sensorDao.findAll();
+        List<SensorType> sensorTypes = sensorTypeDao.findAll();
     }
 }
 

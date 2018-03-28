@@ -7,7 +7,7 @@
             <div class="panel-heading" id="collapseListGroupHeading1" data-toggle="collapse" data-target="#collapseListGroup1" role="tab" >
                 <h4 class="panel-title">
                     隧道监测
-                    <span class="glyphicon glyphicon-chevron-up right"></span>
+                    <span class="glyphicon glyphicon-chevron-down right"></span>
                 </h4>
             </div>
             <!-- .panel-collapse和.collapse标明折叠元素 .in表示要显示出来 -->
@@ -42,8 +42,13 @@
                         </button>
                     </li>
                     <li class="list-group-item">
-                        <button class="menu-item-left">
+                        <button class="menu-item-left" id="authManage">
                             <span class="glyphicon glyphicon-triangle-right"></span>权限管理
+                        </button>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="menu-item-left" id="sensorTypeManage">
+                            <span class="glyphicon glyphicon-triangle-right"></span>传感器类型
                         </button>
                     </li>
                     <li class="list-group-item">

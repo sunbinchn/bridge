@@ -10,4 +10,8 @@ $(function(){
     $("#userInfoButton").click(function() {
         window.location.href = "/bridge/userInfo/index";
     });
+    $("#sensorTypeManage").click(function() {
+        window.location.href = "/bridge/sensorTypeManage/getAll";
+    });
+
 });

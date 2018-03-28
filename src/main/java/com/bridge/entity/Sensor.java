@@ -1,6 +1,6 @@
 package com.bridge.entity;
 
-public class Sensor {
+public class Sensor { //todo
     private Integer id;
     private String code;
     private String sensorName;
