@@ -35,20 +35,22 @@ $(function () {
             var $tr = $($(this).parents("tr")[0]);
             $(".userInfo-modal").modal('show');
             $("#userNameLabel").text($tr.children('td:eq(2)').text());
-            $("#inputPhone").val($tr.children('td:eq(3)').text());
-            $("#inputEmail").val($tr.children('td:eq(4)').text());
+            $("#inputNickName").val($tr.children('td:eq(3)').text());
+            $("#inputPhone").val($tr.children('td:eq(4)').text());
+            $("#inputEmail").val($tr.children('td:eq(5)').text());
             $(".userInfo-modal").attr("data-id", $tr.attr("data-id"));
-            var selectRole = $tr.children('td:eq(5)').text();
+            var selectRole = $tr.children('td:eq(6)').text();
             if (selectRole == '管理员') {
                 $("#selectRole").val(1);
             } else {
                 $("#selectRole").val(0);
             }
-            $("#inputRemark").val($tr.children('td:eq(6)').text());
+            $("#inputRemark").val($tr.children('td:eq(7)').text());
             return false;
         });
         $("#update-user-button").click(function () {
             var updateUser = {};
+            updateUser.nickName = $("#inputNickName").val();
             updateUser.phone = $("#inputPhone").val();
             updateUser.email = $("#inputEmail").val();
             updateUser.role = $("#selectRole").val();

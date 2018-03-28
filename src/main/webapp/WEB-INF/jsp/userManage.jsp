@@ -27,6 +27,7 @@
                         </th>
                         <th>#</th>
                         <th>用户名</th>
+                        <th>真实姓名</th>
                         <th>电话</th>
                         <th>邮箱</th>
                         <th>角色</th>
@@ -42,6 +43,7 @@
                                     <td><input type="checkbox"/></td>
                                     <td>${status.count + (pageInfo.pageNum-1) * pageInfo.pageSize}</td>
                                     <td>${userItem.userName}</td>
+                                    <td>${userItem.nickName}</td>
                                     <td>${userItem.phone}</td>
                                     <td>${userItem.email}</td>
                                     <c:choose>
@@ -67,6 +69,7 @@
                                     <td><input type="checkbox"/></td>
                                     <td>${status.count + (pageInfo.pageNum-1) * pageInfo.pageSize}</td>
                                     <td>${userItem.userName}</td>
+                                    <td>${userItem.nickName}</td>
                                     <td>${userItem.phone}</td>
                                     <td>${userItem.email}</td>
                                     <c:choose>
@@ -140,6 +143,12 @@
                                     <label class="col-sm-2 control-label">用户名</label>
                                     <div class="col-sm-10">
                                         <label class="control-label" id="userNameLabel"></label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputNickName" class="col-sm-2 control-label">真实姓名</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="inputNickName">
                                     </div>
                                 </div>
                                 <div class="form-group">
