@@ -83,7 +83,9 @@
                             <strong>更新成功!</strong>
                         </div>
                     </div>
-                    <div class="form-group"></div>
+                    <div class="form-group">
+                        <label class="col-sm-4 col-sm-offset-2" style="color: red" id="error-update-password"></label>
+                    </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="userName2">用户名：</label>
                         <div class="col-sm-4">
@@ -92,7 +94,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="oldPassword">旧密码：</label>
+                        <label class="col-sm-2 control-label" for="oldPassword">原密码：</label>
                         <div class="col-sm-4">
                             <input class="form-control" id="oldPassword" name="oldPassword" type="password"/>
                         </div>

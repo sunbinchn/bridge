@@ -32,7 +32,9 @@ public class UserInfoController {
     public BaseResult update(@RequestBody User user, HttpServletRequest request) {
         BaseResult result = new BaseResult();
         Integer userId = (Integer)request.getSession().getAttribute("userId");
+        User byId = userDao.findById(userId);
         user.setUserId(userId);
+        user.setRole(byId.getRole());
         boolean update = userDao.update(user);
         if (update) {
             result.setSuccess(true);
