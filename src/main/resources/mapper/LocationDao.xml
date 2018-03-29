@@ -20,4 +20,14 @@
     <select id="findProvinceById" parameterType="Integer" resultType="com.bridge.entity.Province">
         select * from provinces where provinceid = #{param}
     </select>
+    <select id="findAllProvince" resultType="com.bridge.entity.Province">
+        select * from provinces
+    </select>
+    <select id="findAllCityByProvinceId" parameterType="Integer" resultType="com.bridge.entity.City">
+        select * from cities where provinceid = #{param}
+    </select>
+
+    <select id="findAllAreaByCityId" parameterType="Integer" resultType="com.bridge.entity.Area">
+        select * from areas where cityid = #{param}
+    </select>
 </mapper>

@@ -13,5 +13,8 @@ $(function(){
     $("#sensorTypeManage").click(function() {
         window.location.href = "/bridge/sensorTypeManage/getAll";
     });
+    $("#monitorPointButton").click(function() {
+        window.location.href = "/bridge/monitorPoint/index";
+    });
 
 });

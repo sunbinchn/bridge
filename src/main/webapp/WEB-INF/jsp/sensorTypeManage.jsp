@@ -156,55 +156,6 @@
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal-end -->
-            <!-- 传感器form -->
-            <%--<form method="post" onsubmit="return;" class="form-horizontal" role="form" id="sensorTypeForm">--%>
-                <%--<fieldset>--%>
-                    <%--<div class="form-group">--%>
-                        <%--<div id="sensorTypeCloseSuccess" class="alert  alert-success col-sm-offset-2 col-sm-4 alert-dismissible" role="alert" style="margin-bottom: 0px;display: none">--%>
-                            <%--<button id="sensorTypeCloseSuccessClose" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>--%>
-                            <%--<strong>添加成功!</strong>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group">--%>
-                        <%--<label class="col-sm-4 col-sm-offset-2" style="color: red" id="error-panel"></label>--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group">--%>
-                        <%--<label class="col-sm-2 control-label" for="model-sensorTypeName">传感器类型：</label>--%>
-                        <%--<div class="col-sm-4">--%>
-                            <%--<input class="form-control" id="model-sensorTypeName" name="model-sensorTypeName" type="text"/>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group">--%>
-                        <%--<label class="col-sm-2 control-label" for="model-description">传感器描述：</label>--%>
-                        <%--<div class="col-sm-4">--%>
-                            <%--<input class="form-control" id="model-description" name="model-description" type="text"/>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group">--%>
-                        <%--<label class="col-sm-2 control-label" for="model-algorithm">算法说明：</label>--%>
-                        <%--<div class="col-sm-4">--%>
-                            <%--<input class="form-control" id="model-algorithm" name="model-algorithm" type="password"/>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group">--%>
-                        <%--<label class="col-sm-2 control-label" for="model-algorithmDescription">算法值说明：</label>--%>
-                        <%--<div class="col-sm-4">--%>
-                            <%--<input class="form-control" id="model-algorithmDescription" name="model-algorithmDescription" type="password"/>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group">--%>
-                        <%--<label class="col-sm-2 control-label" for="model-remark">备注：</label>--%>
-                        <%--<div class="col-sm-4">--%>
-                            <%--<input class="form-control" id="model-remark" name="model-remark" type="password"/>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<div class="form-group">--%>
-                        <%--<button type="submit" class="col-sm-offset-3 btn btn-primary" style="width: 100px;"--%>
-                                <%--id="passwordSubmitButton">添加--%>
-                        <%--</button>--%>
-                    <%--</div>--%>
-                <%--</fieldset>--%>
-            <%--</form>--%>
         </div>
     </div>
 </div>

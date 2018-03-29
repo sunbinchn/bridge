@@ -74,7 +74,7 @@
                         </button>
                     </li>
                     <li class="list-group-item">
-                        <button class="menu-item-left">
+                        <button class="menu-item-left" id="monitorPointButton">
                             <span class="glyphicon glyphicon-triangle-right"></span>监测点设置
                         </button>
                     </li>
