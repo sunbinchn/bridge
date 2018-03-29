@@ -9,4 +9,10 @@ public interface SensorTypeDao {
     SensorType findById(Integer id);
 
     List<SensorType> findAll();
+
+    SensorType findByName(String sensorTypeName);
+
+    boolean insert(SensorType vo);
+
+    boolean update(SensorType vo);
 }

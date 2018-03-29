@@ -9,4 +9,17 @@
     <select id="findAll" resultMap="sensorTypeMapper">
         select * from tb_sensor_type
     </select>
+    <select id="findByName" parameterType="java.lang.String" resultMap="sensorTypeMapper">
+        select * from tb_sensor_type where sensor_type_name = #{param}
+    </select>
+    <insert id="insert" parameterType="com.bridge.entity.SensorType">
+        insert into tb_sensor_type(sensor_type_name,description,algorithm,algorithm_description,remark)
+        values(#{sensorTypeName},#{description},#{algorithm},#{algorithmDescription},#{remark})
+    </insert>
+    <update id="update" parameterType="com.bridge.entity.SensorType">
+        update tb_sensor_type set sensor_type_name=#{sensorTypeName},description=#{description},
+        algorithm=#{algorithm},algorithm_description=#{algorithmDescription},remark=#{remark}
+        where id = #{id}
+    </update>
+
 </mapper>
