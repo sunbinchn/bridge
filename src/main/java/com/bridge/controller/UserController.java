@@ -56,5 +56,9 @@ public class UserController {
         BaseResult result = userService.saveUser(user);
         return result;
     }
-
+    @RequestMapping(value = "/logOut")
+    public String logOut(HttpServletRequest request) {
+        request.getSession().invalidate();
+        return "redirect:/bridge/login/index.html";
+    }
 }

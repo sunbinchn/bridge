@@ -44,5 +44,24 @@ public class CommonTest {
         List<MonitorType> monitorTypeList = monitorTypeDao.findAll();
         List<SensorType> sensorTypes = sensorTypeDao.findAll();
     }
+    @Test
+    public void save() {
+        MonitorPoint monitorPoint = new MonitorPoint();
+        monitorPoint.setName("南昌八一大桥");
+        User user = new User();
+        user.setUserId(1);
+        monitorPoint.setUser(user);
+        Area area = new Area();
+        area.setAreaid(110101);
+        monitorPoint.setArea(area);
+        monitorPoint.setLongitude(120);
+        monitorPoint.setLatitude(130);
+        monitorPoint.setRemark("备注");
+        monitorPointDao.save(monitorPoint);
+    }
+    @Test
+    public void findByUserIdAndPointName() {
+        MonitorPoint monitorPoint = monitorPointDao.findByUserIdAndPointName(76, "上海立交桥");
+    }
 }
 

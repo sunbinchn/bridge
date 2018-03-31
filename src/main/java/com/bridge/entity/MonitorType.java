@@ -7,8 +7,8 @@ public class MonitorType {
     private Bridge bridge;
     private String monitorName;
     private String type;
-    private BigDecimal hial;
-    private BigDecimal loal;
+    private BigDecimal hial; //高预警
+    private BigDecimal loal; //低预警
 
     public Integer getId() {
         return id;

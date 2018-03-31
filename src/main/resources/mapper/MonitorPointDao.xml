@@ -9,6 +9,16 @@
         select * from tb_monitor_point where id = #{param}
     </select>
     <select id="findAll" resultMap="monitorPointMapper">
-        select * from tb_monitor_point;
+        select * from tb_monitor_point
     </select>
+    <select id="findByUserIdAndPointName" resultMap="monitorPointMapper">
+        select * from tb_monitor_point where user_id = #{userId} and name = #{name}
+    </select>
+    <select id="findAllByUserId" resultMap="monitorPointMapper">
+        select * from tb_monitor_point where user_id = #{userId}
+    </select>
+    <insert id="save" parameterType="com.bridge.entity.MonitorPoint">
+        insert into tb_monitor_point(name,area_id,user_id,longitude,latitude,remark)
+        values(#{name},#{area.areaid},#{user.userId},#{longitude},#{latitude},#{remark})
+    </insert>
 </mapper>

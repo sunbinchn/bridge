@@ -9,6 +9,9 @@
         select * from tb_monitor_data where id = #{param}
     </select>
     <select id="findAll" resultMap="monitorDataMapper">
-        select * from tb_monitor_data;
+        select * from tb_monitor_data
+    </select>
+    <select id="findAllByUserId" resultMap="monitorDataMapper" parameterType="Integer">
+        select * from tb_monitor_data where user_id = #{param}
     </select>
 </mapper>
