@@ -95,37 +95,39 @@
                 </tbody>
             </table>
             <!-- 分页 -->
-            <div style="float:right">
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <c:if test="${pageInfo.hasPreviousPage}">
-                            <li>
-                                <a href="${PATH}userManage/getAll?pn=${pageInfo.pageNum-1}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                        </c:if>
-                        <c:forEach items="${pageInfo.navigatepageNums}" var="curNum">
-                            <c:choose>
-                                <c:when test="${pageInfo.pageNum eq curNum}" >
-                                    <li class="active"><span>${curNum}</span></li>
-                                </c:when>
-                                <c:otherwise>
-                                    <li><a href="${PATH}userManage/getAll?pn=${curNum}">${curNum}</a></li>
-                                </c:otherwise>
-                            </c:choose>
+            <c:if test="${pageInfo.pages gt 1}">
+                <div style="float:right">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <c:if test="${pageInfo.hasPreviousPage}">
+                                <li>
+                                    <a href="${PATH}userManage/getAll?pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            </c:if>
+                            <c:forEach items="${pageInfo.navigatepageNums}" var="curNum">
+                                <c:choose>
+                                    <c:when test="${pageInfo.pageNum eq curNum}" >
+                                        <li class="active"><span>${curNum}</span></li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li><a href="${PATH}userManage/getAll?pn=${curNum}">${curNum}</a></li>
+                                    </c:otherwise>
+                                </c:choose>
 
-                        </c:forEach>
-                        <c:if test="${pageInfo.hasNextPage}">
-                            <li>
-                                <a href="${PATH}userManage/getAll?pn=${pageInfo.pageNum+1}" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </c:if>
-                    </ul>
-                </nav>
-            </div> <!-- 分页结束 -->
+                            </c:forEach>
+                            <c:if test="${pageInfo.hasNextPage}">
+                                <li>
+                                    <a href="${PATH}userManage/getAll?pn=${pageInfo.pageNum+1}" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </c:if>
+                        </ul>
+                    </nav>
+                </div> <!-- 分页结束 -->
+            </c:if>
             <!-- 修改用户信息模态框 -->
             <div class="modal fade userInfo-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">

@@ -16,4 +16,8 @@ public interface MonitorPointDao {
     boolean save(MonitorPoint monitorPoint);
 
     MonitorPoint findByUserIdAndPointName(@Param("userId") Integer userId,@Param("name") String name);
+
+    boolean delete(Integer id);
+
+    boolean update(MonitorPoint monitorPoint);
 }

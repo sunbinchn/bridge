@@ -5,7 +5,7 @@ $(function () {
     function init_event() {
         $("#userInfoButton").addClass("color-info");
         $("#baseInfoLi").click(function () {
-            $('#passwordLi').removeClass("active");//todo 一直点会出错
+            $('#passwordLi').removeClass("active");
             $('#baseInfoLi').addClass("active");
             $('#updateUserInfoForm').css('display','block');
             $('#updateUserPasswordForm').css('display','none');

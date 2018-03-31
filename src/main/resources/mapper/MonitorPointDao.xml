@@ -21,4 +21,10 @@
         insert into tb_monitor_point(name,area_id,user_id,longitude,latitude,remark)
         values(#{name},#{area.areaid},#{user.userId},#{longitude},#{latitude},#{remark})
     </insert>
+    <delete id="delete" parameterType="Integer">
+        delete from tb_monitor_point where id = #{param}
+    </delete>
+    <update id="update" parameterType="com.bridge.entity.MonitorPoint">
+        update tb_monitor_point set name = #{name},area_id= #{area.areaid},longitude= #{longitude},latitude= #{latitude},remark= #{remark} where id = #{id}
+    </update>
 </mapper>

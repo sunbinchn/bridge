@@ -8,6 +8,7 @@ public class MonitorPoint {
     private double longitude; //经度
     private double latitude; //纬度
     private String remark;
+    private String location; //省份+市+区域，供显示用
 
     public Integer getId() {
         return id;
@@ -63,5 +64,13 @@ public class MonitorPoint {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
