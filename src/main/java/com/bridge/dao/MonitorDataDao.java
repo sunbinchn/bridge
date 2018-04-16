@@ -9,4 +9,6 @@ public interface MonitorDataDao {
     MonitorData findById(Integer id);
 
     List<MonitorData> findAll();
+
+    boolean insert(MonitorData monitorData);
 }

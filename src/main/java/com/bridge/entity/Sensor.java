@@ -1,9 +1,10 @@
 package com.bridge.entity;
 
-public class Sensor { //todo
+public class Sensor {
     private Integer id;
-    private String code;
-    private String sensorName;
+    private String name;
+    private SensorType sensorType;
+    private MonitorType monitorType;
 
     public Integer getId() {
         return id;
@@ -13,19 +14,27 @@ public class Sensor { //todo
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public String getName() {
+        return name;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSensorName() {
-        return sensorName;
+    public SensorType getSensorType() {
+        return sensorType;
     }
 
-    public void setSensorName(String sensorName) {
-        this.sensorName = sensorName;
+    public void setSensorType(SensorType sensorType) {
+        this.sensorType = sensorType;
+    }
+
+    public MonitorType getMonitorType() {
+        return monitorType;
+    }
+
+    public void setMonitorType(MonitorType monitorType) {
+        this.monitorType = monitorType;
     }
 }

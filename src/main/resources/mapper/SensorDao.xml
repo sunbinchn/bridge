@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bridge.dao.SensorDao">
+    <resultMap id="sensorMapper" type="com.bridge.entity.Sensor">
+        <association property="sensorType" column="sensor_type_id" select="com.bridge.dao.SensorTypeDao.findById"></association>
+        <association property="monitorType" column="monitor_type_id" select="com.bridge.dao.MonitorTypeDao.findById"></association>
+    </resultMap>
+    <select id="findByName" parameterType="String" resultMap="sensorMapper">
+        select * from tb_sensor where name = #{param}
+    </select>
+</mapper>
