@@ -20,7 +20,7 @@
                         </button>
                     </li>
                     <li class="list-group-item">
-                        <button class="menu-item-left">
+                        <button class="menu-item-left" id="chartInfoButton">
                             <span class="glyphicon glyphicon-triangle-right"></span>图形分析
                         </button>
                     </li>

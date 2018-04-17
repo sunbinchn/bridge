@@ -4,6 +4,9 @@ $(function(){
         $(this).find("span").toggleClass("glyphicon-chevron-down");
         $(this).find("span").toggleClass("glyphicon-chevron-up");
     });
+    $("#chartInfoButton").click(function() {
+        window.location.href = "/bridge/chartInfo/index";
+    });
     $("#userManageButton").click(function() {
         window.location.href = "/bridge/userManage/getAll";
     });

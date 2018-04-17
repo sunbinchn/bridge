@@ -14,7 +14,7 @@
     <select id="findAllByUserId" resultMap="monitorDataMapper" parameterType="Integer">
         select * from tb_monitor_data where user_id = #{param}
     </select>
-    <insert id="insert" parameterType="com.bridge.entity.MonitorData">
+    <insert id="insert" parameterType="com.bridge.entity.MonitorData" keyProperty="id" useGeneratedKeys="true">
         insert into tb_monitor_data(sensor_id,monitor_point_id,temp,measurements,deviation,unit,create_time)
         values(#{sensor.id},#{monitorPoint.id},#{temp},#{measurements},#{deviation},#{unit},now())
     </insert>

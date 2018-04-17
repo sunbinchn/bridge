@@ -5,6 +5,7 @@ public class Sensor {
     private String name;
     private SensorType sensorType;
     private MonitorType monitorType;
+    private User user;
 
     public Integer getId() {
         return id;
@@ -36,5 +37,13 @@ public class Sensor {
 
     public void setMonitorType(MonitorType monitorType) {
         this.monitorType = monitorType;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
