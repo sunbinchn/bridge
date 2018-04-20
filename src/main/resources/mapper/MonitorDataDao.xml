@@ -9,16 +9,21 @@
         select * from tb_monitor_data where id = #{param}
     </select>
     <select id="findAll" resultMap="monitorDataMapper">
-        select * from tb_monitor_data
+        select * from tb_monitor_data  order by create_time desc
     </select>
     <select id="findAllByUserId" resultMap="monitorDataMapper" parameterType="Integer">
-        select d.* from tb_monitor_data d,tb_sensor s where d.sensor_id=s.id and s.user_id=#{param}
-    </select>
-    <select id="findAllByUserId" resultMap="monitorDataMapper" parameterType="Integer">
-        select * from tb_monitor_data where user_id = #{param}
+        select d.* from tb_monitor_data d,tb_sensor s where d.sensor_id=s.id and s.user_id=#{param}  order by create_time desc
     </select>
     <insert id="insert" parameterType="com.bridge.entity.MonitorData" keyProperty="id" useGeneratedKeys="true">
         insert into tb_monitor_data(sensor_id,monitor_point_id,temp,measurements,deviation,unit,create_time)
         values(#{sensor.id},#{monitorPoint.id},#{temp},#{measurements},#{deviation},#{unit},now())
     </insert>
+    <delete id="deleteById" parameterType="Integer">
+        delete from tb_monitor_data where id = #{param}
+    </delete>
+    <delete id="updateById" parameterType="com.bridge.entity.MonitorData">
+        update tb_monitor_data set sensor_id = #{sensor.id},monitor_point_id=#{monitorPoint.id},
+          temp=#{temp},measurements=#{measurements},deviation=#{deviation},unit=#{unit}
+          where id = #{param}
+    </delete>
 </mapper>

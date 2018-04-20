@@ -29,6 +29,12 @@ public class MonitorDataController {
     @Autowired
     private SensorDao sensorDao;
 
+    /**
+     *
+     * @param monitorDataVo
+     * @param request
+     * @return
+     */
     @RequestMapping("handle")
     @ResponseBody
     public BaseResult handle(@RequestBody MonitorDataVo monitorDataVo, HttpServletRequest request) {
@@ -42,6 +48,11 @@ public class MonitorDataController {
         MonitorData monitorData = new MonitorData();
         if (StringUtils.isNotEmpty(monitorDataVo.getId())) {
             Sensor sensor = sensorDao.findByName(monitorDataVo.getId());
+            if (sensor == null) {
+                result.setSuccess(false);
+                result.setMessage("Sensor" + monitorDataVo.getId() + "does not exist.");
+                return result;
+            }
             checkAndEmail(sensor, monitorDataVo);
             monitorData.setSensor(sensor);
         }

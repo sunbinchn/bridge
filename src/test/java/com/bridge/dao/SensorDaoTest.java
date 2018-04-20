@@ -1,6 +1,9 @@
 package com.bridge.dao;
 
+import com.bridge.entity.MonitorType;
 import com.bridge.entity.Sensor;
+import com.bridge.entity.SensorType;
+import com.bridge.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -19,5 +22,22 @@ public class SensorDaoTest {
     @Test
     public void test() {
         Sensor byName = sensorDao.findByName("SZY-001");
+    }
+    @Test
+    public void insertOrUpdate() {
+        Sensor sensor = new Sensor();
+        sensor.setName("传感器002");
+        SensorType sensorType = new SensorType();
+        sensorType.setId(1);
+        sensor.setSensorType(sensorType);
+        User user = new User();
+        user.setUserId(1);
+        sensor.setUser(user);
+        MonitorType monitorType = new MonitorType();
+        monitorType.setId(1);
+        sensor.setMonitorType(monitorType);
+        sensorDao.insert(sensor);
+        sensor.setName("传感器003");
+        sensorDao.update(sensor);
     }
 }

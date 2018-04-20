@@ -11,4 +11,10 @@ public interface SensorDao {
     Sensor findById(Integer id);
 
     List<Sensor> findAll();
+
+    List<Sensor> findAllByUserId(Integer userId);
+
+    boolean insert(Sensor sensor);
+
+    boolean update(Sensor sensor);
 }

@@ -15,4 +15,15 @@
     <select id="findAll" resultMap="sensorMapper">
         select * from tb_sensor
     </select>
+    <select id="findAllByUserId" resultMap="sensorMapper" parameterType="Integer">
+        select * from tb_sensor where user_id = #{param}
+    </select>
+    <insert id="insert" parameterType="com.bridge.entity.Sensor" keyProperty="id" useGeneratedKeys="true">
+        insert into tb_sensor(name,user_id,sensor_type_id,monitor_type_id)
+        values(#{name},#{user.userId},#{sensorType.id},#{monitorType.id})
+    </insert>
+    <insert id="update" parameterType="com.bridge.entity.Sensor">
+        update tb_sensor set name = #{name},sensor_type_id=#{sensorType.id},monitor_type_id=#{monitorType.id}
+        where id = #{id}
+    </insert>
 </mapper>
