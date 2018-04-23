@@ -19,5 +19,8 @@ $(function(){
     $("#monitorPointButton").click(function() {
         window.location.href = "/bridge/monitorPoint/index";
     });
+    $("#sensorButton").click(function() {
+        window.location.href = "/bridge/sensor/index";
+    });
 
 });

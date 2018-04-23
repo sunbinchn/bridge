@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <div id="addPointSuccessDiv" class="alert  alert-success col-sm-offset-2 col-sm-4 alert-dismissible" role="alert" style="margin-bottom: 0px;display: none">
                         <button id="addPointSuccessClose" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <strong>添加成功!</strong>
+                        <strong></strong>
                     </div>
                 </div>
                 <div class="form-group" hidden="true" id="error-msg-div" style="margin-left: 20px;">

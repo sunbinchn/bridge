@@ -70,11 +70,7 @@ $(function () {
             return false;
         });
         $("#viewPointLi").click(function () {
-            location.reload();
-            // $('#addPointLi').removeClass("active");
-            // $('#viewPointLi').addClass("active");
-            // $('#addPointForm').css('display','none');
-            // $('#point-view-div').css('display','block');
+            window.location.href = '/bridge/monitorPoint/index';
             return false;
         });
         $("#addPointButton").click(function () {
@@ -87,7 +83,7 @@ $(function () {
             monitorPoint.longitude = $("#longitude").val();
             monitorPoint.latitude = $("#latitude").val();
             monitorPoint.remark = $("#remark").val();
-            monitorPoint.id = $(this).parents('form').attr('data-id')
+            monitorPoint.id = $(this).parents('form').attr('data-id');
 
             if (_.isEmpty(monitorPoint.name)) {
                 $("#error-msg-label").text('监测点名称不能为空');
@@ -108,14 +104,20 @@ $(function () {
                 data: JSON.stringify(monitorPoint),
                 success: function (result) {
                     if (result.success) {
-                        $("#pointName").val('');
-                        $("#select-province").val(-1);
-                        $("#select-city").val(-1);
-                        $("#select-area").val(-1);
-                        $("#longitude").val('');
-                        $("#latitude").val('');
-                        $("#remark").val('');
-                        $("#addPointSuccessDiv").css('display','block');
+                        if (result.message === 'save') {
+                            $("#pointName").val('');
+                            $("#select-province").val(-1);
+                            $("#select-city").val(-1);
+                            $("#select-area").val(-1);
+                            $("#longitude").val('');
+                            $("#latitude").val('');
+                            $("#remark").val('');
+                            $("#addPointSuccessDiv strong").text('添加成功!');
+                            $("#addPointSuccessDiv").css('display','block');
+                        } else {
+                            $("#addPointSuccessDiv strong").text('更新成功!');
+                            $("#addPointSuccessDiv").css('display','block');
+                        }
                     } else {
                         $("#error-msg-label").text(result.message);
                         $("#error-msg-div").prop('hidden', false);

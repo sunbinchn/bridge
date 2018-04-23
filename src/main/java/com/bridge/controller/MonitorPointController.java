@@ -84,14 +84,11 @@ public class MonitorPointController {
             Integer userId = (Integer) request.getSession().getAttribute("userId");
             user.setUserId(userId);
         }
-        if (vo.getId() == null) { //update
-            //保存前判断目标用户是否已经存在这个名字的监测点
-            MonitorPoint find = monitorPointDao.findByUserIdAndPointName(user.getUserId(), vo.getName());
-            if (find != null) {
-                result.setSuccess(false);
-                result.setMessage("该检测点已经存在！不能重复创建");
-                return result;
-            }
+        MonitorPoint find = monitorPointDao.findByUserIdAndPointName(user.getUserId(), vo.getName());
+        if (find != null) {
+            result.setSuccess(false);
+            result.setMessage("该检测点已经存在！不能重复创建");
+            return result;
         }
         monitorPoint.setUser(user);
         monitorPoint.setName(vo.getName());
@@ -101,15 +98,18 @@ public class MonitorPointController {
         monitorPoint.setLongitude(vo.getLongitude());
         monitorPoint.setLatitude(vo.getLatitude());
         monitorPoint.setRemark(vo.getRemark());
+        monitorPoint.setId(vo.getId());
         if (vo.getId() != null) { //update
-            boolean save = monitorPointDao.save(monitorPoint);
-            if (save) {
-                result.setSuccess(true);
-            }
-        } else { //create
             boolean update = monitorPointDao.update(monitorPoint);
             if (update) {
                 result.setSuccess(true);
+                result.setMessage("update");
+            }
+        } else { //create
+            boolean save = monitorPointDao.save(monitorPoint);
+            if (save) {
+                result.setSuccess(true);
+                result.setMessage("save");
             }
         }
 

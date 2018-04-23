@@ -26,4 +26,10 @@
         update tb_sensor set name = #{name},sensor_type_id=#{sensorType.id},monitor_type_id=#{monitorType.id}
         where id = #{id}
     </insert>
+    <insert id="delete" parameterType="Integer">
+        delete from tb_sensor where id = #{param}
+    </insert>
+    <select id="findByUserIdAndSensorName"  resultMap="sensorMapper">
+        select * from tb_sensor where user_id = #{userId} and name = #{name}
+    </select>
 </mapper>

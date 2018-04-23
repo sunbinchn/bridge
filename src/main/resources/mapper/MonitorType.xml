@@ -8,6 +8,9 @@
         select * from tb_monitor_type where id = #{param}
     </select>
     <select id="findAll" resultMap="monitorTypeMapper">
-        select * from tb_monitor_type;
+        select * from tb_monitor_type
+    </select>
+    <select id="findAllByUserId" resultMap="monitorTypeMapper" parameterType="Integer">
+        select * from tb_monitor_type where user_id = #{param}
     </select>
 </mapper>
