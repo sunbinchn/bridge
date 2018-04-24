@@ -7,7 +7,7 @@ $(function () {
         $(".delete-sensor").click(function () {
             var id = $($(this).parents('tr')[0]).attr('data-id');
             $.ajax({
-                url: "/bridge/sensor/delete?id="+id,
+                url: "/bridge/monitorType/delete?id="+id,
                 type: "get",
                 success: function (result) {
                     if (result.success) {
@@ -16,9 +16,6 @@ $(function () {
                 }
             });
             return false;
-        });
-        $("#addSensorButton").click(function () {
-           return false;
         });
         $(".update-sensor").click(function () {
             $('#addSensorLi').click();
@@ -33,12 +30,13 @@ $(function () {
             return false;
         });
         $("#addSensorLi").click(function () {
+            $("#addSensorForm").attr('data-id','');
             $('#viewSensorLi').removeClass("active");
             $('#addSensorLi').addClass("active");
             $('#addSensorForm').css('display','block');
             $('#sensor-view-div').css('display','none');
-            $("#sensorPointA").text('添加');
-            $("#sensorPointButton").text('添加');
+            $("#addSensorA").text('添加');
+            $("#addSensorButton").text('添加');
             return false;
         });
         $("#addSensorButton").click(function () {

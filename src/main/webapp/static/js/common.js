@@ -22,5 +22,8 @@ $(function(){
     $("#sensorButton").click(function() {
         window.location.href = "/bridge/sensor/index";
     });
+    $("#monitorTypeButton").click(function() {
+        window.location.href = "/bridge/monitorType/index";
+    });
 
 });

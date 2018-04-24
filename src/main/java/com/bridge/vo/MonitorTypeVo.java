@@ -1,13 +1,13 @@
-package com.bridge.entity;
+package com.bridge.vo;
 
 import java.math.BigDecimal;
 
-public class MonitorType {
+public class MonitorTypeVo {
     private Integer id;
     private String monitorName;
     private BigDecimal hial; //高预警
     private BigDecimal loal; //低预警
-    private MonitorPoint monitorPoint;
+    private Integer monitorPointId;
 
     public Integer getId() {
         return id;
@@ -41,11 +41,11 @@ public class MonitorType {
         this.loal = loal;
     }
 
-    public MonitorPoint getMonitorPoint() {
-        return monitorPoint;
+    public Integer getMonitorPointId() {
+        return monitorPointId;
     }
 
-    public void setMonitorPoint(MonitorPoint monitorPoint) {
-        this.monitorPoint = monitorPoint;
+    public void setMonitorPointId(Integer monitorPointId) {
+        this.monitorPointId = monitorPointId;
     }
 }

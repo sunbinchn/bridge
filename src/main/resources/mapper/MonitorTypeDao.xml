@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bridge.dao.MonitorTypeDao">
+    <resultMap id="monitorTypeMapper" type="com.bridge.entity.MonitorType">
+        <association property="monitorPoint" column="monitor_point_id" select="com.bridge.dao.MonitorPointDao.findById"></association>
+    </resultMap>
+    <select id="findById" parameterType="Integer" resultMap="monitorTypeMapper">
+        select * from tb_monitor_type where id = #{param}
+    </select>
+    <select id="findAll" resultMap="monitorTypeMapper">
+        select * from tb_monitor_type
+    </select>
+    <select id="findAllByUserId" resultMap="monitorTypeMapper" parameterType="Integer">
+        select * from tb_monitor_type where user_id = #{param}
+    </select>
+    <select id="findByUserIdAndMonitorName" resultMap="monitorTypeMapper">
+      select * from tb_monitor_type where user_id = #{userId} and monitor_name = #{monitorName}
+    </select>
+    <delete id="delete" parameterType="Integer">
+        delete from tb_monitor_type where id = #{param}
+    </delete>
+    <update id="update" parameterType="com.bridge.entity.MonitorType">
+        update tb_monitor_type set monitor_name=#{monitorName},hial=#{hial},loal=#{loal},monitor_point_id=#{monitorPoint.id}
+        where id = #{id}
+    </update>
+    <insert id="insert" parameterType="com.bridge.entity.MonitorType">
+        insert into tb_monitor_type(monitor_name,hial,loal,user_id,monitor_point_id)
+        VALUES (#{monitorName},#{hial},#{loal},#{monitorPoint.user.userId},#{monitorPoint.id})
+    </insert>
+</mapper>

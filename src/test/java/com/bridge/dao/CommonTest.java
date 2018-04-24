@@ -17,8 +17,6 @@ public class CommonTest {
 
     private static Logger logger = LoggerFactory.getLogger(CommonTest.class);
     @Autowired
-    private BridgeDao bridgeDao;
-    @Autowired
     private MonitorDataDao monitorDataDao;
     @Autowired
     private MonitorPointDao monitorPointDao;
@@ -29,7 +27,6 @@ public class CommonTest {
 
     @Test
     public void testFindById() {
-        Bridge bridge = bridgeDao.findById(1);
         MonitorData monitorData = monitorDataDao.findById(1);
         MonitorPoint monitorPoint = monitorPointDao.findById(1);
         MonitorType monitorType = monitorTypeDao.findById(1);
@@ -38,7 +35,6 @@ public class CommonTest {
 
     @Test
     public void testFindAll() {
-        List<Bridge> bridgeList = bridgeDao.findAll();
         List<MonitorData> monitorDataList = monitorDataDao.findAll();
         List<MonitorPoint> monitorPointList = monitorPointDao.findAll();
         List<MonitorType> monitorTypeList = monitorTypeDao.findAll();

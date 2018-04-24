@@ -61,6 +61,7 @@ $(function () {
         });
 
         $("#addPointLi").click(function () {
+            $("#addPointForm").attr('data-id','');
             $('#viewPointLi').removeClass("active");
             $('#addPointLi').addClass("active");
             $('#addPointForm').css('display','block');

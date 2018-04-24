@@ -69,6 +69,11 @@
             <div id="collapseListGroup3" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
                 <ul class="list-group">
                     <li class="list-group-item">
+                        <button class="menu-item-left" id="monitorTypeButton">
+                            <span class="glyphicon glyphicon-triangle-right"></span>监测类型设置
+                        </button>
+                    </li>
+                    <li class="list-group-item">
                         <button class="menu-item-left" id="sensorButton">
                             <span class="glyphicon glyphicon-triangle-right"></span>传感器设置
                         </button>

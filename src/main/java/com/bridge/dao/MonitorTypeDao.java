@@ -1,7 +1,7 @@
 package com.bridge.dao;
 
 import com.bridge.entity.MonitorType;
-import com.bridge.entity.Sensor;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,5 +11,13 @@ public interface MonitorTypeDao {
 
     List<MonitorType> findAll();
 
-    List<Sensor> findAllByUserId(Integer userId);
+    List<MonitorType> findAllByUserId(Integer userId);
+
+    boolean delete(Integer id);
+
+    MonitorType findByUserIdAndMonitorName(@Param("userId") Integer userId,@Param("monitorName")  String monitorName);
+
+    boolean update(MonitorType monitorType);
+
+    boolean insert(MonitorType monitorType);
 }
