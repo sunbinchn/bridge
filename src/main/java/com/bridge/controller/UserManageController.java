@@ -2,6 +2,7 @@ package com.bridge.controller;
 
 import com.bridge.dao.UserDao;
 import com.bridge.entity.User;
+import com.bridge.service.UserService;
 import com.bridge.vo.result.BaseResult;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -20,6 +21,8 @@ public class UserManageController {
     private static final Integer NAVIGATE_PAGES = 5;
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/getAll")
     public String userManage(@RequestParam(value = "pn", defaultValue = "1") Integer pn, HttpServletRequest request) {
@@ -80,5 +83,11 @@ public class UserManageController {
             result.setSuccess(true);
         }
         return result;
+    }
+
+    @RequestMapping(value = "/insert", method = RequestMethod.POST)
+    @ResponseBody
+    public BaseResult insert(@RequestBody User user, HttpServletRequest request) {
+        return userService.saveUser(user);
     }
 }

@@ -72,6 +72,55 @@ $(function () {
             });
             return false;
         });
+        $("#insert-user-button").click(function () {
+            var user = {};
+            user.userName = $("#userNameInput2").val();
+            user.password = $("#passwordInput2").val();
+            user.nickName = $("#inputNickName2").val();
+            user.phone = $("#inputPhone2").val();
+            user.email = $("#inputEmail2").val();
+            user.role = $("#selectRole2").val();
+            user.remark = $("#inputRemark2").val();
+            if (_.isEmpty(user.userName)) {
+                $("#error-msg-label2").text('用户名不能为空');
+                $("#error-msg-div2").prop('hidden', false);
+                return false;
+            }
+            if (_.isEmpty(user.password)) {
+                $("#error-msg-label2").text('密码不能为空');
+                $("#error-msg-div2").prop('hidden', false);
+                return false;
+            }
+            if (!_.isEmpty(user.email)) {
+                if (!/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g.test(user.email)) {
+                    $("#error-msg-label2").text('邮箱格式不正确');
+                    $("#error-msg-div2").prop('hidden', false);
+                    return false;
+                }
+            }
+            $("#error-msg-div2").prop('hidden', true);
+            $.ajax({
+                url: "/bridge/userManage/insert" ,
+                type: "post",
+                contentType : 'application/json;charset=utf-8',
+                data: JSON.stringify(user),
+                success: function (result) {
+                    if (result.success) {
+                        alert('添加成功！');
+                        location.reload();
+                    } else {
+                        $("#error-msg-label2").text(result.message);
+                        $("#error-msg-div2").prop('hidden', false);
+                    }
+                }
+            });
+            return false;
+        });
+        $("#add-button").click(function () {
+            $("#error-msg-label2").text('');
+            $("#error-msg-div2").prop('hidden', true);
+            $(".addUserInfo-modal").modal('show');
+        });
         $("#batch-delete").click(function () {
             var deleteUserIdList = [];
             $('table input:gt(0)').each(function(){

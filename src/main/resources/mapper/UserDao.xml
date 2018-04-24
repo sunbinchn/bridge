@@ -5,8 +5,9 @@
         <id column="id" jdbcType="INTEGER" property="userId" />
     </resultMap>
     <insert id="insert" parameterType="com.bridge.entity.User">
-        insert into tb_user(user_name, password, phone)
-        values (#{userName,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{phone,jdbcType=CHAR}
+        insert into tb_user(user_name, password, phone,nick_name,email,role,remark)
+        values (#{userName,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{phone,jdbcType=CHAR},
+        #{nickName},#{email},#{role},#{remark})
     </insert>
     <select id="findById" parameterType="Integer" resultMap="userMapper">
         select * from tb_user where id = #{param}

@@ -18,6 +18,7 @@
         <%@ include file="leftMeun.jsp" %>
         <!-- 右侧内容栏 -->
         <div class="col-md-10">
+            <button type="button" class="btn btn-info btn-sm" id="add-button" style="margin-top: 5px;">添加</button>
             <button type="button" class="btn btn-danger btn-sm" id="batch-delete" style="margin-top: 5px;">删除</button>
             <table class="table table-bordered table-hover" id="emp_table_id" style="margin-top: 5px; margin-bottom: 0px;">
                 <thead>
@@ -143,7 +144,7 @@
                             <form class="form-horizontal">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">用户名</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-8">
                                         <label class="control-label" id="userNameLabel"></label>
                                     </div>
                                 </div>
@@ -184,6 +185,80 @@
                                 <div class="form-group">
                                     <div class="col-sm-offset-4 col-sm-6">
                                         <button type="submit" class="btn btn-primary" style="width: 120px" id="update-user-button">更新</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal-end -->
+
+
+            <!-- 添加用户模态框 -->
+            <div class="modal fade addUserInfo-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h3 class="modal-title">添加用户</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group" hidden="true" id="error-msg-div2" >
+                                <label class="control-label" id="error-msg-label2" style="color:red;"></label>
+                            </div>
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">用户名</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="userNameInput2" hidden="true"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="passwordInput2" class="col-sm-2 control-label">密码</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="passwordInput2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputNickName2" class="col-sm-2 control-label">真实姓名</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="inputNickName2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputPhone2" class="col-sm-2 control-label">电话</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="inputPhone2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail2" class="col-sm-2 control-label">邮箱</label>
+                                    <div class="col-sm-8">
+                                        <input type="email" class="form-control" id="inputEmail2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="selectRole" class="col-sm-2 control-label">角色</label>
+                                    <div class="col-sm-8">
+                                        <select id="selectRole2" name="selectRole"
+                                                class="selectpicker show-tick form-control" data-live-search="false">
+                                            <option value="0">普通用户</option>
+                                            <option value="1">管理员</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputRemark" class="col-sm-2 control-label">备注</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="inputRemark2">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-4 col-sm-6">
+                                        <button type="submit" class="btn btn-primary" style="width: 120px" id="insert-user-button">添加</button>
                                     </div>
                                 </div>
                             </form>
