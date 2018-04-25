@@ -53,7 +53,11 @@ public class MonitorDataController {
                 result.setMessage("Sensor" + monitorDataVo.getId() + "does not exist.");
                 return result;
             }
-            checkAndEmail(sensor, monitorDataVo);
+            if (checkAndEmail(sensor, monitorDataVo)) {
+                monitorData.setIsSend(1);
+            } else {
+                monitorData.setIsSend(0);
+            }
             monitorData.setSensor(sensor);
         }
         monitorData.setTemp(convert(monitorDataVo.getTemperature()));
@@ -72,7 +76,8 @@ public class MonitorDataController {
         return null;
     }
 
-    public void checkAndEmail(Sensor sensor, MonitorDataVo monitorDataVo) {
+    public boolean checkAndEmail(Sensor sensor, MonitorDataVo monitorDataVo) {
+        boolean isSendEmail = false;
         MonitorType monitorType = sensor.getMonitorType();
         if (monitorType != null && StringUtils.isNotEmpty(monitorDataVo.getValue())) {
             BigDecimal hial = monitorType.getHial();
@@ -96,6 +101,7 @@ public class MonitorDataController {
                     hialBuffer.append(monitorType.getHial());
                     hialBuffer.append("，请及时处理");
                     EmailUtil.sendMail(email, "桥梁检测数据超高预警", hialBuffer.toString());
+                    isSendEmail = true;
                 }
                 if (loal != null && value.compareTo(loal) == -1) {
                     StringBuffer loalBuffer = new StringBuffer(contentHead);
@@ -103,8 +109,10 @@ public class MonitorDataController {
                     loalBuffer.append(monitorType.getLoal());
                     loalBuffer.append("，请及时处理");
                     EmailUtil.sendMail(email, "桥梁检测数据超低预警", loalBuffer.toString());
+                    isSendEmail = true;
                 }
             }
         }
+        return isSendEmail;
     }
 }

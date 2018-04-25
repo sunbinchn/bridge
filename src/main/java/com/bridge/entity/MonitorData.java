@@ -6,11 +6,12 @@ import java.util.Date;
 public class MonitorData {
     private Integer id;
     private Sensor sensor;
-    private MonitorPoint monitorPoint;
+    private MonitorType monitorType; //一条数据当中会记录传感器和监测类型（里面包括了监测点），这样当传感器换了监测类型之后，这条数据也还是不会变的
     private BigDecimal temp;
     private BigDecimal measurements;
     private BigDecimal deviation;
     private String unit;
+    private Integer isSend;
     private Date createTime;
 
     public Integer getId() {
@@ -29,12 +30,12 @@ public class MonitorData {
         this.sensor = sensor;
     }
 
-    public MonitorPoint getMonitorPoint() {
-        return monitorPoint;
+    public MonitorType getMonitorType() {
+        return monitorType;
     }
 
-    public void setMonitorPoint(MonitorPoint monitorPoint) {
-        this.monitorPoint = monitorPoint;
+    public void setMonitorType(MonitorType monitorType) {
+        this.monitorType = monitorType;
     }
 
     public BigDecimal getTemp() {
@@ -67,6 +68,14 @@ public class MonitorData {
 
     public void setUnit(String unit) {
         this.unit = unit;
+    }
+
+    public Integer getIsSend() {
+        return isSend;
+    }
+
+    public void setIsSend(Integer isSend) {
+        this.isSend = isSend;
     }
 
     public Date getCreateTime() {

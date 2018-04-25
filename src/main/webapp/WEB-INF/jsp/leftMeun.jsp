@@ -14,9 +14,13 @@
             <div id="collapseListGroup1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading1">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <!-- 利用data-target指定URL -->
-                        <button class="menu-item-left" data-target="test2.html">
+                        <button class="menu-item-left" id="monitorDataButton">
                             <span class="glyphicon glyphicon-triangle-right"></span>监测数据
+                        </button>
+                    </li>
+                    <li class="list-group-item">
+                        <button class="menu-item-left" id="monitorDataOfIsEmailButton">
+                            <span class="glyphicon glyphicon-triangle-right"></span>预警信息
                         </button>
                     </li>
                     <li class="list-group-item">
@@ -41,11 +45,11 @@
                             <span class="glyphicon glyphicon-triangle-right"></span>用户管理
                         </button>
                     </li>
-                    <li class="list-group-item">
-                        <button class="menu-item-left" id="authManage">
-                            <span class="glyphicon glyphicon-triangle-right"></span>权限管理
-                        </button>
-                    </li>
+                    <%--<li class="list-group-item">--%>
+                        <%--<button class="menu-item-left" id="authManage">--%>
+                            <%--<span class="glyphicon glyphicon-triangle-right"></span>权限管理--%>
+                        <%--</button>--%>
+                    <%--</li>--%>
                     <li class="list-group-item">
                         <button class="menu-item-left" id="sensorTypeManage">
                             <span class="glyphicon glyphicon-triangle-right"></span>传感器类型

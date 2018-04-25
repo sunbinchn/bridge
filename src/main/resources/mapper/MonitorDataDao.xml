@@ -3,7 +3,7 @@
 <mapper namespace="com.bridge.dao.MonitorDataDao">
     <resultMap id="monitorDataMapper" type="com.bridge.entity.MonitorData">
         <association property="sensor" column="sensor_id" select="com.bridge.dao.SensorDao.findById"></association>
-        <association property="monitorPoint" column="monitor_point_id" select="com.bridge.dao.MonitorPointDao.findById"></association>
+        <association property="monitorType" column="monitor_type_id" select="com.bridge.dao.MonitorTypeDao.findById"></association>
     </resultMap>
     <select id="findById" parameterType="Integer" resultMap="monitorDataMapper">
         select * from tb_monitor_data where id = #{param}
@@ -15,8 +15,8 @@
         select d.* from tb_monitor_data d,tb_sensor s where d.sensor_id=s.id and s.user_id=#{param}  order by create_time desc
     </select>
     <insert id="insert" parameterType="com.bridge.entity.MonitorData" keyProperty="id" useGeneratedKeys="true">
-        insert into tb_monitor_data(sensor_id,monitor_point_id,temp,measurements,deviation,unit,create_time)
-        values(#{sensor.id},#{monitorPoint.id},#{temp},#{measurements},#{deviation},#{unit},now())
+        insert into tb_monitor_data(sensor_id,monitor_point_id,temp,measurements,deviation,unit,is_send_email,create_time)
+        values(#{sensor.id},#{monitorPoint.id},#{temp},#{measurements},#{deviation},#{unit},#{isSend},now())
     </insert>
     <delete id="deleteById" parameterType="Integer">
         delete from tb_monitor_data where id = #{param}
