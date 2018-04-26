@@ -18,17 +18,20 @@ $(function () {
         });
         $(".delete-user").click(function () {
             var userId = parseInt($($(this).parents("tr")[0]).attr('data-id'));
-            $.ajax({
-                url: "/bridge/userManage/delete?userId=" + userId ,
-                type: "get",
-                success: function (result) {
-                    if (result.success) { //todo waring如果为当前
-                        location.reload();
-                    } else { //todo waring
-                        console.log(result.message);
+            var userName = $($($(this).parents("tr")[0]).children()[2]).text();
+            if (confirm('确认删除用户【'+ userName +'】吗？')) {
+                $.ajax({
+                    url: "/bridge/userManage/delete?userId=" + userId ,
+                    type: "get",
+                    success: function (result) {
+                        if (result.success) {
+                            location.reload();
+                        } else {
+                            alert(result.message);
+                        }
                     }
-                }
-            });
+                });
+            }
             return false;
         });
         $(".update-user").click(function () {
