@@ -14,9 +14,32 @@
     <select id="findAllByUserId" resultMap="monitorDataMapper" parameterType="Integer">
         select d.* from tb_monitor_data d,tb_sensor s where d.sensor_id=s.id and s.user_id=#{param}  order by create_time desc
     </select>
+    <select id="findAllByCriteria" resultMap="monitorDataMapper" parameterType="com.bridge.vo.criteria.MonitorDataCriteria">
+        select d.* from tb_monitor_data d,tb_sensor s where d.sensor_id=s.id and s.user_id=#{userId}
+         <if test="fromDate != null">
+             and create_time &gt;= #{fromDate}
+         </if>
+        <if test="toDate != null">
+            and create_time &lt; #{toDate}
+        </if>
+         order by create_time desc
+    </select>
+    <select id="findAllAlertByCriteria" resultMap="monitorDataMapper" parameterType="com.bridge.vo.criteria.MonitorDataCriteria">
+        select d.* from tb_monitor_data d,tb_sensor s,tb_monitor_type m
+        where d.sensor_id=s.id and s.monitor_type_id = m.id and
+        (d.measurements+d.deviation > m.hial or d.measurements-d.deviation &lt; m.loal)
+        and s.user_id=#{userId}
+         <if test="fromDate != null">
+             and create_time &gt;= #{fromDate}
+         </if>
+        <if test="toDate != null">
+            and create_time &lt; #{toDate}
+        </if>
+         order by create_time desc
+    </select>
     <insert id="insert" parameterType="com.bridge.entity.MonitorData" keyProperty="id" useGeneratedKeys="true">
         insert into tb_monitor_data(sensor_id,monitor_point_id,temp,measurements,deviation,unit,is_send_email,create_time)
-        values(#{sensor.id},#{monitorPoint.id},#{temp},#{measurements},#{deviation},#{unit},#{isSend},now())
+        values(#{sensor.id},#{monitorPoint.id},#{temp},#{measurements},#{deviation},#{unit},#{isSendEmail},now())
     </insert>
     <delete id="deleteById" parameterType="Integer">
         delete from tb_monitor_data where id = #{param}

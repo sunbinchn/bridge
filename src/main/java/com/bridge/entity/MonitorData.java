@@ -11,7 +11,7 @@ public class MonitorData {
     private BigDecimal measurements;
     private BigDecimal deviation;
     private String unit;
-    private Integer isSend;
+    private Integer isSendEmail;
     private Date createTime;
 
     public Integer getId() {
@@ -70,12 +70,12 @@ public class MonitorData {
         this.unit = unit;
     }
 
-    public Integer getIsSend() {
-        return isSend;
+    public Integer getIsSendEmail() {
+        return isSendEmail;
     }
 
-    public void setIsSend(Integer isSend) {
-        this.isSend = isSend;
+    public void setIsSendEmail(Integer isSendEmail) {
+        this.isSendEmail = isSendEmail;
     }
 
     public Date getCreateTime() {

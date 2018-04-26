@@ -3,7 +3,7 @@ $(function () {
     init_event();
     init_UI();
     function init_event() {
-        $("#monitorDataButton").addClass("color-info");
+        $("#monitorDataOfIsEmailButton").addClass("color-info");
         $("#search-button").click(function () {
            var fromDate = $("#from-date").val();
            var toDate = $("#to-date").val();
@@ -15,9 +15,9 @@ $(function () {
                }
            }
            if (_.isEmpty(fromDate) && _.isEmpty(toDate)) {
-               window.location.href = "/bridge/monitorInfoData/getAll";
+               window.location.href = "/bridge/monitorInfoData/alert/getAll";
            } else {
-               window.location.href = "/bridge/monitorInfoData/getAll?dateRange=" + fromDate + "_" + toDate;
+               window.location.href = "/bridge/monitorInfoData/alert/getAll?dateRange=" + fromDate + "_" + toDate;
            }
             return false;
         });

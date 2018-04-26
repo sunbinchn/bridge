@@ -17,7 +17,7 @@
     <script src="${PATH}static/js/datetime/moment-with-locales.js"></script>
     <script src="${PATH}static/js/datetime/bootstrap-datetimepicker.min.js"></script>
     <script src="${PATH}static/js/datetime/bootstrap-datetimepicker.zh-CN.js"></script>
-    <script src="${PATH}static/js/monitorDataInfo.js"></script>
+    <script src="${PATH}static/js/monitorDataAlertInfo.js"></script>
 </head>
 <body>
 <input hidden="true" value="${param.dateRange}" id="dateRangeInput"/>
@@ -50,11 +50,12 @@
                         <th>监测点</th>
                         <th>监测类型</th>
                         <th>传感器名称</th>
-                        <th>传感器类型</th>
-                        <th>温度</th>
                         <th>测量值</th>
                         <th>允许误差</th>
-                        <th>单位</th>
+                        <th>上限值</th>
+                        <th>下限值</th>
+                        <th>是否发送邮件</th>
+                        <th>收件人</th>
                         <th>创建时间</th>
                     </tr>
                 </thead>
@@ -67,11 +68,12 @@
                                     <td>${monitorData.monitorType.monitorPoint.name}</td>
                                     <td>${monitorData.monitorType.monitorName}</td>
                                     <td>${monitorData.sensor.name}</td>
-                                    <td>${monitorData.sensor.sensorType.sensorTypeName}</td>
-                                    <td>${monitorData.temp}</td>
                                     <td>${monitorData.measurements}</td>
                                     <td>${monitorData.deviation}</td>
-                                    <td>${monitorData.unit}</td>
+                                    <td>${monitorData.monitorType.hial}</td>
+                                    <td>${monitorData.monitorType.loal}</td>
+                                    <td>${monitorData.isSendEmail eq 1 ? "是" : "否"}</td>
+                                    <td>${monitorData.sensor.user.email}</td>
                                     <td><fmt:formatDate value="${monitorData.createTime}"  type="both" /></td>
                                 </tr>
                             </c:when>
@@ -81,11 +83,12 @@
                                     <td>${monitorData.monitorType.monitorPoint.name}</td>
                                     <td>${monitorData.monitorType.monitorName}</td>
                                     <td>${monitorData.sensor.name}</td>
-                                    <td>${monitorData.sensor.sensorType.sensorTypeName}</td>
-                                    <td>${monitorData.temp}</td>
                                     <td>${monitorData.measurements}</td>
                                     <td>${monitorData.deviation}</td>
-                                    <td>${monitorData.unit}</td>
+                                    <td>${monitorData.monitorType.hial}</td>
+                                    <td>${monitorData.monitorType.loal}</td>
+                                    <td>${monitorData.isSendEmail eq 1 ? "是" : "否"}</td>
+                                    <td>${monitorData.sensor.user.email}</td>
                                     <td><fmt:formatDate value="${monitorData.createTime}"  type="both" /></td>
                                 </tr>
                             </c:otherwise>
@@ -102,12 +105,12 @@
                                 <li>
                                     <c:choose>
                                         <c:when test="${!empty DATERANGE}">
-                                            <a href="${PATH}monitorInfoData/getAll?pn=${pageInfo.pageNum-1}&dateRange=${DATERANGE}" aria-label="Previous">
+                                            <a href="${PATH}monitorInfoData/alert/getAll?pn=${pageInfo.pageNum-1}&dateRange=${DATERANGE}" aria-label="Previous">
                                                 <span aria-hidden="true">&laquo;</span>
                                             </a>
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="${PATH}monitorInfoData/getAll?pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                                            <a href="${PATH}monitorInfoData/alert/getAll?pn=${pageInfo.pageNum-1}" aria-label="Previous">
                                                 <span aria-hidden="true">&laquo;</span>
                                             </a>
                                         </c:otherwise>
@@ -122,10 +125,10 @@
                                     <c:otherwise>
                                         <c:choose>
                                             <c:when test="${!empty DATERANGE}">
-                                                <li><a href="${PATH}monitorInfoData/getAll?pn=${curNum}&dateRange=${DATERANGE}">${curNum}</a></li>
+                                                <li><a href="${PATH}monitorInfoData/alert/getAll?pn=${curNum}&dateRange=${DATERANGE}">${curNum}</a></li>
                                             </c:when>
                                             <c:otherwise>
-                                                <li><a href="${PATH}monitorInfoData/getAll?pn=${curNum}">${curNum}</a></li>
+                                                <li><a href="${PATH}monitorInfoData/alert/getAll?pn=${curNum}">${curNum}</a></li>
                                             </c:otherwise>
                                         </c:choose>
                                     </c:otherwise>
@@ -136,12 +139,12 @@
                                 <li>
                                     <c:choose>
                                         <c:when test="${!empty DATERANGE}">
-                                            <a href="${PATH}monitorInfoData/getAll?pn=${pageInfo.pageNum+1}&dateRange=${DATERANGE}" aria-label="Next">
+                                            <a href="${PATH}monitorInfoData/alert/getAll?pn=${pageInfo.pageNum+1}&dateRange=${DATERANGE}" aria-label="Next">
                                                 <span aria-hidden="true">&raquo;</span>
                                             </a>
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="${PATH}monitorInfoData/getAll?pn=${pageInfo.pageNum+1}" aria-label="Next">
+                                            <a href="${PATH}monitorInfoData/alert/getAll?pn=${pageInfo.pageNum+1}" aria-label="Next">
                                                 <span aria-hidden="true">&raquo;</span>
                                             </a>
                                         </c:otherwise>

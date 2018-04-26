@@ -7,6 +7,9 @@ $(function(){
     $("#monitorDataButton").click(function() {
         window.location.href = "/bridge/monitorInfoData/getAll";
     });
+    $("#monitorDataOfIsEmailButton").click(function() {
+        window.location.href = "/bridge/monitorInfoData/alert/getAll";
+    });
     $("#chartInfoButton").click(function() {
         window.location.href = "/bridge/chartInfo/index";
     });

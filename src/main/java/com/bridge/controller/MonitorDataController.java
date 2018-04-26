@@ -54,9 +54,9 @@ public class MonitorDataController {
                 return result;
             }
             if (checkAndEmail(sensor, monitorDataVo)) {
-                monitorData.setIsSend(1);
+                monitorData.setIsSendEmail(1);
             } else {
-                monitorData.setIsSend(0);
+                monitorData.setIsSendEmail(0);
             }
             monitorData.setSensor(sensor);
         }
