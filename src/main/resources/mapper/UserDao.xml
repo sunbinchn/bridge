@@ -33,4 +33,7 @@
         #{item}
         </foreach>
     </delete>
+    <update id="updateLastSendEmailTimeById" parameterType="Integer">
+        update tb_user set last_send_email_time=now() where id = #{param}
+    </update>
 </mapper>

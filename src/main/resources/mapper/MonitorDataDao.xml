@@ -38,14 +38,14 @@
          order by create_time desc
     </select>
     <insert id="insert" parameterType="com.bridge.entity.MonitorData" keyProperty="id" useGeneratedKeys="true">
-        insert into tb_monitor_data(sensor_id,monitor_point_id,temp,measurements,deviation,unit,is_send_email,create_time)
-        values(#{sensor.id},#{monitorPoint.id},#{temp},#{measurements},#{deviation},#{unit},#{isSendEmail},now())
+        insert into tb_monitor_data(sensor_id,monitor_type_id,temp,measurements,deviation,unit,is_send_email,create_time)
+        values(#{sensor.id},#{monitorType.id},#{temp},#{measurements},#{deviation},#{unit},#{isSendEmail},now())
     </insert>
     <delete id="deleteById" parameterType="Integer">
         delete from tb_monitor_data where id = #{param}
     </delete>
     <delete id="updateById" parameterType="com.bridge.entity.MonitorData">
-        update tb_monitor_data set sensor_id = #{sensor.id},monitor_point_id=#{monitorPoint.id},
+        update tb_monitor_data set sensor_id = #{sensor.id},monitor_type_id=#{monitorType.id},
           temp=#{temp},measurements=#{measurements},deviation=#{deviation},unit=#{unit}
           where id = #{param}
     </delete>

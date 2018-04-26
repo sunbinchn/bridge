@@ -1,6 +1,8 @@
 package com.bridge.entity;
 
 
+import java.util.Date;
+
 public class User {
     private Integer userId;
     private String userName;
@@ -8,6 +10,7 @@ public class User {
     private String password;
     private String phone;
     private String email;
+    private Date lastSendEmailTime;
     private String remark;
     private Integer role;
 
@@ -57,6 +60,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getLastSendEmailTime() {
+        return lastSendEmailTime;
+    }
+
+    public void setLastSendEmailTime(Date lastSendEmailTime) {
+        this.lastSendEmailTime = lastSendEmailTime;
     }
 
     public Integer getRole() {

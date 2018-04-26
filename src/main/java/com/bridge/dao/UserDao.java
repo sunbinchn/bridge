@@ -22,4 +22,6 @@ public interface UserDao {
     boolean batchDelete(List<Integer> userList);
 
     boolean updatePassword(User user);
+
+    boolean updateLastSendEmailTimeById(Integer id);
 }
