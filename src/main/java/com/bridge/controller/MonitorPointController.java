@@ -3,6 +3,7 @@ package com.bridge.controller;
 import com.bridge.contants.RoleConstant;
 import com.bridge.dao.LocationDao;
 import com.bridge.dao.MonitorPointDao;
+import com.bridge.dao.MonitorTypeDao;
 import com.bridge.dao.UserDao;
 import com.bridge.entity.Area;
 import com.bridge.entity.MonitorPoint;
@@ -31,6 +32,8 @@ public class MonitorPointController {
     private static final Integer NAVIGATE_PAGES = 5;
     @Autowired
     private MonitorPointDao monitorPointDao;
+    @Autowired
+    private MonitorTypeDao monitorTypeDao;
     @Autowired
     private LocationDao locationDao;
     @Autowired
@@ -122,6 +125,11 @@ public class MonitorPointController {
         BaseResult result = new BaseResult();
         Integer role = (Integer) request.getSession().getAttribute("role");
         Integer userId = (Integer) request.getSession().getAttribute("userId");
+        if (monitorTypeDao.countByMonitorPointId(id) > 0) {
+            result.setSuccess(false);
+            result.setMessage("该监测点已经被监测类型使用，无法删除！");
+            return result;
+        }
         boolean delete = false;
         if (RoleConstant.ADMIN.getRole().equals(role) || RoleConstant.SUPER_ADMIN.getRole().equals(role)) { //管理员可以直接删除
             delete = monitorPointDao.delete(id);

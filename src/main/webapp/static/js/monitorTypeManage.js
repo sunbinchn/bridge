@@ -12,6 +12,8 @@ $(function () {
                 success: function (result) {
                     if (result.success) {
                         location.reload();
+                    } else {
+                        alert(result.message);
                     }
                 }
             });

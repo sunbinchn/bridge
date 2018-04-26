@@ -20,4 +20,6 @@ public interface MonitorTypeDao {
     boolean update(MonitorType monitorType);
 
     boolean insert(MonitorType monitorType);
+
+    Integer countByMonitorPointId(Integer id);
 }

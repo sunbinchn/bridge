@@ -21,10 +21,14 @@ public interface MonitorDataDao {
 
     boolean updateById(MonitorData monitorData);
 
+    Integer countBySensorId(Integer sensorId);
+
     /**
      * 找到所有需要预警的数据
      * @param criteria
      * @return
      */
     List<MonitorData> findAllAlertByCriteria(MonitorDataCriteria criteria);
+
+    Integer countByMonitorTypeId(Integer id);
 }

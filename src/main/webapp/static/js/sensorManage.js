@@ -7,11 +7,13 @@ $(function () {
         $(".delete-sensor").click(function () {
             var id = $($(this).parents('tr')[0]).attr('data-id');
             $.ajax({
-                url: "/bridge/monitorType/delete?id="+id,
+                url: "/bridge/sensor/delete?id="+id,
                 type: "get",
                 success: function (result) {
                     if (result.success) {
                         location.reload();
+                    } else {
+                        alert(result.message);
                     }
                 }
             });

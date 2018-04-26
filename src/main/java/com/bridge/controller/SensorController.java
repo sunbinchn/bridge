@@ -1,12 +1,10 @@
 package com.bridge.controller;
 
+import com.bridge.dao.MonitorDataDao;
 import com.bridge.dao.MonitorTypeDao;
 import com.bridge.dao.SensorDao;
 import com.bridge.dao.SensorTypeDao;
-import com.bridge.entity.MonitorType;
-import com.bridge.entity.Sensor;
-import com.bridge.entity.SensorType;
-import com.bridge.entity.User;
+import com.bridge.entity.*;
 import com.bridge.vo.SensorVo;
 import com.bridge.vo.result.BaseResult;
 import com.github.pagehelper.PageHelper;
@@ -32,6 +30,8 @@ public class SensorController {
     private MonitorTypeDao monitorTypeDao;
     @Autowired
     private SensorTypeDao sensorTypeDao;
+    @Autowired
+    private MonitorDataDao monitorDataDao;
 
     @RequestMapping("/index")
     public String index(@RequestParam(value = "pn", defaultValue = "1") Integer pn, HttpServletRequest request) {
@@ -103,6 +103,12 @@ public class SensorController {
     public BaseResult delete(@RequestParam("id") Integer id, HttpServletRequest request) {
         BaseResult result = new BaseResult();
         Integer userId = (Integer) request.getSession().getAttribute("userId");
+        Integer integer = monitorDataDao.countBySensorId(id);
+        if (integer > 0) {
+            result.setSuccess(false);
+            result.setMessage("该传感器已经产生数据，无法删除！");
+            return result;
+        }
         Sensor byId = sensorDao.findById(id);
         if (byId.getUser().getUserId().equals(userId)) {
             if (sensorDao.delete(id)) {

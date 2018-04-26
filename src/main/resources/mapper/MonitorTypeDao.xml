@@ -27,4 +27,7 @@
         insert into tb_monitor_type(monitor_name,hial,loal,user_id,monitor_point_id)
         VALUES (#{monitorName},#{hial},#{loal},#{monitorPoint.user.userId},#{monitorPoint.id})
     </insert>
+    <select id="countByMonitorPointId" parameterType="Integer" resultType="Integer">
+        select count(id) from tb_monitor_type where monitor_point_id=#{param}
+    </select>
 </mapper>

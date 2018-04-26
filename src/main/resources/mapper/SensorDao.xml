@@ -32,4 +32,7 @@
     <select id="findByUserIdAndSensorName"  resultMap="sensorMapper">
         select * from tb_sensor where user_id = #{userId} and name = #{name}
     </select>
+    <select id="countByMonitorTypeId" parameterType="Integer" resultType="Integer">
+        select count(id) from  tb_sensor where monitor_type_id = #{param}
+    </select>
 </mapper>

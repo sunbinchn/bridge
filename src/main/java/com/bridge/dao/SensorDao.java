@@ -22,4 +22,6 @@ public interface SensorDao {
     boolean delete(Integer id);
 
     Sensor findByUserIdAndSensorName(@Param("userId") Integer userId,@Param("name") String name);
+
+    Integer countByMonitorTypeId(Integer id);
 }

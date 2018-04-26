@@ -49,4 +49,10 @@
           temp=#{temp},measurements=#{measurements},deviation=#{deviation},unit=#{unit}
           where id = #{param}
     </delete>
+    <select id="countBySensorId" parameterType="Integer" resultType="Integer">
+        select count(id) from  tb_monitor_data where sensor_id = #{param}
+    </select>
+    <select id="countByMonitorTypeId" parameterType="Integer" resultType="Integer">
+        select count(id) from  tb_monitor_data where monitor_type_id = #{param}
+    </select>
 </mapper>
