@@ -68,9 +68,9 @@
                                     <td>${monitorData.monitorType.monitorName}</td>
                                     <td>${monitorData.sensor.name}</td>
                                     <td>${monitorData.sensor.sensorType.sensorTypeName}</td>
-                                    <td>${monitorData.temp}</td>
-                                    <td>${monitorData.measurements}</td>
-                                    <td>${monitorData.deviation}</td>
+                                    <td><fmt:formatNumber value="${monitorData.temp}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${monitorData.measurements}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${monitorData.deviation}" pattern="#.#####"/></td>
                                     <td>${monitorData.unit}</td>
                                     <td><fmt:formatDate value="${monitorData.createTime}"  type="both" /></td>
                                 </tr>
@@ -82,9 +82,9 @@
                                     <td>${monitorData.monitorType.monitorName}</td>
                                     <td>${monitorData.sensor.name}</td>
                                     <td>${monitorData.sensor.sensorType.sensorTypeName}</td>
-                                    <td>${monitorData.temp}</td>
-                                    <td>${monitorData.measurements}</td>
-                                    <td>${monitorData.deviation}</td>
+                                    <td><fmt:formatNumber value="${monitorData.temp}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${monitorData.measurements}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${monitorData.deviation}" pattern="#.#####"/></td>
                                     <td>${monitorData.unit}</td>
                                     <td><fmt:formatDate value="${monitorData.createTime}"  type="both" /></td>
                                 </tr>

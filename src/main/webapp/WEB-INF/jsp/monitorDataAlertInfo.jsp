@@ -52,10 +52,10 @@
                         <th>传感器名称</th>
                         <th>测量值</th>
                         <th>允许误差</th>
-                        <th>上限值</th>
-                        <th>下限值</th>
+                        <th style="width: 20px;">上限</th>
+                        <th style="width: 20px;">下限</th>
                         <th>是否发送邮件</th>
-                        <th>收件人</th>
+                        <th style="max-width: 120px">收件人</th>
                         <th>创建时间</th>
                     </tr>
                 </thead>
@@ -68,10 +68,10 @@
                                     <td>${monitorData.monitorType.monitorPoint.name}</td>
                                     <td>${monitorData.monitorType.monitorName}</td>
                                     <td>${monitorData.sensor.name}</td>
-                                    <td>${monitorData.measurements}</td>
-                                    <td>${monitorData.deviation}</td>
-                                    <td>${monitorData.monitorType.hial}</td>
-                                    <td>${monitorData.monitorType.loal}</td>
+                                    <td><fmt:formatNumber value="${monitorData.measurements}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${monitorData.deviation}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${monitorData.monitorType.hial}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${monitorData.monitorType.loal}" pattern="#.#####"/></td>
                                     <td>${monitorData.isSendEmail eq 1 ? "是" : "否"}</td>
                                     <td>${monitorData.sensor.user.email}</td>
                                     <td><fmt:formatDate value="${monitorData.createTime}"  type="both" /></td>
@@ -83,10 +83,10 @@
                                     <td>${monitorData.monitorType.monitorPoint.name}</td>
                                     <td>${monitorData.monitorType.monitorName}</td>
                                     <td>${monitorData.sensor.name}</td>
-                                    <td>${monitorData.measurements}</td>
-                                    <td>${monitorData.deviation}</td>
-                                    <td>${monitorData.monitorType.hial}</td>
-                                    <td>${monitorData.monitorType.loal}</td>
+                                    <td><fmt:formatNumber value="${monitorData.measurements}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${monitorData.deviation}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${monitorData.monitorType.hial}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${monitorData.monitorType.loal}" pattern="#.#####"/></td>
                                     <td>${monitorData.isSendEmail eq 1 ? "是" : "否"}</td>
                                     <td>${monitorData.sensor.user.email}</td>
                                     <td><fmt:formatDate value="${monitorData.createTime}"  type="both" /></td>

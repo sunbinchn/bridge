@@ -8,8 +8,7 @@ import javax.mail.internet.MimeMessage.RecipientType;
 import java.util.Properties;
 
 public class EmailUtil {
-    //	 public static final String FROM = "411938182@qq.com";//发件人的email
-    private static final String FROM = "sunbinchn@qq.com";//发件人的email
+    public static final String FROM = "411938182@qq.com";//发件人的email
     private static final String PWD = "enwaytopcmnkbgga";//发件人密码--邮箱密码
     private static final String HOST = "smtp.qq.com";
     private static final int PORT = 587;

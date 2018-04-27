@@ -88,8 +88,8 @@
                                 <tr class="info" data-id="${sensorType.id}" monitor-point-id="${sensorType.monitorPoint.id}">
                                     <td>${status.count + (pageInfo.pageNum-1) * pageInfo.pageSize}</td>
                                     <td>${sensorType.monitorName}</td>
-                                    <td>${sensorType.hial}</td>
-                                    <td>${sensorType.loal}</td>
+                                    <td><fmt:formatNumber value="${sensorType.hial}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${sensorType.loal}" pattern="#.#####"/></td>
                                     <td>${sensorType.monitorPoint.name}</td>
                                     <td>
                                         <a href="" class="update-monitorType">修改</a>
@@ -101,8 +101,8 @@
                                 <tr data-id="${sensorType.id}" monitor-point-id="${sensorType.monitorPoint.id}">
                                     <td>${status.count + (pageInfo.pageNum-1) * pageInfo.pageSize}</td>
                                     <td>${sensorType.monitorName}</td>
-                                    <td>${sensorType.hial}</td>
-                                    <td>${sensorType.loal}</td>
+                                    <td><fmt:formatNumber value="${sensorType.hial}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${sensorType.loal}" pattern="#.#####"/></td>
                                     <td>${sensorType.monitorPoint.name}</td>
                                     <td>
                                         <a href="" class="update-monitorType">修改</a>

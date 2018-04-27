@@ -6,7 +6,7 @@
             <!-- 利用data-target指定要折叠的分组列表 -->
             <div class="panel-heading" id="collapseListGroupHeading1" data-toggle="collapse" data-target="#collapseListGroup1" role="tab" >
                 <h4 class="panel-title">
-                    隧道监测
+                    桥梁监测
                     <span class="glyphicon glyphicon-chevron-down right"></span>
                 </h4>
             </div>

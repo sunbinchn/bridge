@@ -93,8 +93,8 @@
                                     <td>${sensor.sensorType.sensorTypeName}</td>
                                     <td>${sensor.monitorType.monitorName}</td>
                                     <td>${sensor.monitorType.monitorPoint.name}</td>
-                                    <td>${sensor.monitorType.hial}</td>
-                                    <td>${sensor.monitorType.loal}</td>
+                                    <td><fmt:formatNumber value="${sensor.monitorType.hial}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${sensor.monitorType.loal}" pattern="#.#####"/></td>
                                     <td>
                                         <a href="" class="update-sensor">修改</a>
                                         <a href="" class="delete-sensor">删除</a>
@@ -108,8 +108,8 @@
                                     <td>${sensor.sensorType.sensorTypeName}</td>
                                     <td>${sensor.monitorType.monitorName}</td>
                                     <td>${sensor.monitorType.monitorPoint.name}</td>
-                                    <td>${sensor.monitorType.hial}</td>
-                                    <td>${sensor.monitorType.loal}</td>
+                                    <td><fmt:formatNumber value="${sensor.monitorType.hial}" pattern="#.#####"/></td>
+                                    <td><fmt:formatNumber value="${sensor.monitorType.loal}" pattern="#.#####"/></td>
                                     <td>
                                         <a href="" class="update-sensor">修改</a>
                                         <a href="" class="delete-sensor">删除</a>
