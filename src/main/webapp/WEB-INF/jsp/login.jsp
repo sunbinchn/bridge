@@ -17,17 +17,13 @@
     <script src="${PATH}static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script src="${PATH}static/js/login/login.js"></script>
 </head>
-<body>
-<div class="container">
+<body style="background:url(${PATH}static/images/bg_1.jpg) top center no-repeat; background-size:cover;">
+<div class="container" style="margin-top: 300px;">
     <form class="form-signin" method="post" onsubmit="return;">
+        <h1>桥梁监测系统</h1>
         <h5 class="form-signin-heading" style="color: red;"></h5>
         <input type="text" id="username" class="form-control" placeholder="用户名" required autofocus>
         <input type="password" id="password" class="form-control" placeholder="密码" required>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> 记住密码
-            </label>
-        </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" id="submit">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</button>
     </form>
 

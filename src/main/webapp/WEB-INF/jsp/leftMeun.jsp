@@ -23,41 +23,14 @@
                             <span class="glyphicon glyphicon-triangle-right"></span>预警信息
                         </button>
                     </li>
-                    <li class="list-group-item">
-                        <button class="menu-item-left" id="chartInfoButton">
-                            <span class="glyphicon glyphicon-triangle-right"></span>图形分析
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div><!--panel end-->
-        <div class="panel panel-primary leftMenu">
-            <div class="panel-heading" id="collapseListGroupHeading2" data-toggle="collapse" data-target="#collapseListGroup2" role="tab" >
-                <h4 class="panel-title">
-                    管理
-                    <span class="glyphicon glyphicon-chevron-down right"></span>
-                </h4>
-            </div>
-            <div id="collapseListGroup2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <button class="menu-item-left" id="userManageButton">
-                            <span class="glyphicon glyphicon-triangle-right"></span>用户管理
-                        </button>
-                    </li>
                     <%--<li class="list-group-item">--%>
-                        <%--<button class="menu-item-left" id="authManage">--%>
-                            <%--<span class="glyphicon glyphicon-triangle-right"></span>权限管理--%>
+                        <%--<button class="menu-item-left" id="chartInfoButton">--%>
+                            <%--<span class="glyphicon glyphicon-triangle-right"></span>图形分析--%>
                         <%--</button>--%>
                     <%--</li>--%>
                     <li class="list-group-item">
                         <button class="menu-item-left" id="sensorTypeManage">
-                            <span class="glyphicon glyphicon-triangle-right"></span>传感器类型
-                        </button>
-                    </li>
-                    <li class="list-group-item">
-                        <button class="menu-item-left" id="userInfoButton">
-                            <span class="glyphicon glyphicon-triangle-right"></span>个人信息
+                            <span class="glyphicon glyphicon-triangle-right"></span>传感器信息
                         </button>
                     </li>
                 </ul>
@@ -87,8 +60,37 @@
                             <span class="glyphicon glyphicon-triangle-right"></span>监测点设置
                         </button>
                     </li>
+                    <li class="list-group-item">
+                        <button class="menu-item-left" id="userInfoButton">
+                            <span class="glyphicon glyphicon-triangle-right"></span>个人信息
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div><!--panel end-->
+        <c:if test="${role > 0}">
+            <div class="panel panel-primary leftMenu">
+                <div class="panel-heading" id="collapseListGroupHeading2" data-toggle="collapse" data-target="#collapseListGroup2" role="tab" >
+                    <h4 class="panel-title">
+                        管理
+                        <span class="glyphicon glyphicon-chevron-down right"></span>
+                    </h4>
+                </div>
+                <div id="collapseListGroup2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <button class="menu-item-left" id="userManageButton">
+                                <span class="glyphicon glyphicon-triangle-right"></span>用户管理
+                            </button>
+                        </li>
+                        <%--<li class="list-group-item">--%>
+                            <%--<button class="menu-item-left" id="authManage">--%>
+                                <%--<span class="glyphicon glyphicon-triangle-right"></span>权限管理--%>
+                            <%--</button>--%>
+                        <%--</li>--%>
+                    </ul>
+                </div>
+            </div><!--panel end-->
+        </c:if>
     </div>
 </div>

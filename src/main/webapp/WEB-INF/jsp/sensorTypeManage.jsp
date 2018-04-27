@@ -19,7 +19,10 @@
         <!-- 右侧内容栏 -->
         <div class="col-md-10">
             <!-- 传感器显示table -->
-            <button type="button" class="btn btn-success btn-sm" id="add-button" style="margin-top: 5px;">添加</button>
+            <c:if test="${role > 0}">
+                <button type="button" class="btn btn-success btn-sm" id="add-button" style="margin-top: 5px;">添加</button>
+            </c:if>
+
             <table class="table table-bordered table-hover" id="emp_table_id" style="margin-top: 5px; margin-bottom: 0px;">
                 <thead>
                 <tr>
@@ -29,7 +32,9 @@
                     <th style="min-width: 100px;">算法说明</th>
                     <th style="min-width: 100px;">值说明</th>
                     <th style="min-width: 100px;">备注</th>
-                    <th style="min-width: 100px;">操作</th>
+                    <c:if test="${role > 0}">
+                         <th style="min-width: 100px;">操作</th>
+                    </c:if>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,9 +48,11 @@
                                 <td>${sensorType.algorithm}</td>
                                 <td>${sensorType.algorithmDescription}</td>
                                 <td>${sensorType.remark}</td>
-                                <td>
-                                    <a class="update-sensor-type" href="">修改</a>
-                                </td>
+                                <c:if test="${role > 0}">
+                                    <td>
+                                        <a class="update-sensor-type" href="">修改</a>
+                                    </td>
+                                </c:if>
                             </tr>
                         </c:when>
                         <c:otherwise>
@@ -56,9 +63,11 @@
                                 <td>${sensorType.algorithm}</td>
                                 <td>${sensorType.algorithmDescription}</td>
                                 <td>${sensorType.remark}</td>
-                                <td>
-                                    <a class="update-sensor-type" href="">修改</a>
-                                </td>
+                                <c:if test="${role > 0}">
+                                    <td>
+                                        <a class="update-sensor-type" href="">修改</a>
+                                    </td>
+                                </c:if>
                             </tr>
                         </c:otherwise>
                     </c:choose>
