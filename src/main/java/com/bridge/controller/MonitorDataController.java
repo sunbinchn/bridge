@@ -110,19 +110,19 @@ public class MonitorDataController {
                 contentHead.append(sensor.getName());
                 contentHead.append("监测实时数据为：");
                 contentHead.append(monitorDataVo.getValue());
-                if (hial != null && value.compareTo(hial.add(deviation)) != -1) { //监测值 >= 最高值+误差(不小于)
+                if (hial != null && value.compareTo(hial) != -1) { //监测值 >= 最高值(不小于)
                     StringBuffer hialBuffer = new StringBuffer(contentHead);
                     hialBuffer.append("，已超过您设定的最高值：");
                     hialBuffer.append(monitorType.getHial());
-                    hialBuffer.append("(±"+deviation+")，请及时处理");
+                    hialBuffer.append("，请及时处理");
                     EmailUtil.sendMail(email, "桥梁检测数据超高预警", hialBuffer.toString());
                     isSendEmail = true;
                 }
-                if (loal != null && value.compareTo(loal.subtract(deviation)) != 1) {//监测值 <= 最高值-误差（不大于）
+                if (loal != null && value.compareTo(loal) != 1) {//监测值 <= 最高值（不大于）
                     StringBuffer loalBuffer = new StringBuffer(contentHead);
                     loalBuffer.append("，已超过您设定的最低值：");
                     loalBuffer.append(monitorType.getLoal());
-                    loalBuffer.append("(±"+deviation+")，请及时处理");
+                    loalBuffer.append("，请及时处理");
                     EmailUtil.sendMail(email, "桥梁检测数据超低预警", loalBuffer.toString());
                     isSendEmail = true;
                 }

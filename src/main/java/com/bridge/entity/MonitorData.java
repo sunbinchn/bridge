@@ -8,8 +8,8 @@ public class MonitorData {
     private Sensor sensor;
     private MonitorType monitorType; //一条数据当中会记录传感器和监测类型（里面包括了监测点），这样当传感器换了监测类型之后，这条数据也还是不会变的
     private BigDecimal temp;
-    private BigDecimal measurements;
-    private BigDecimal deviation;
+    private BigDecimal measurements; //测量值
+    private BigDecimal deviation; //偏差值
     private String unit;
     private Integer isSendEmail;
     private Date createTime;

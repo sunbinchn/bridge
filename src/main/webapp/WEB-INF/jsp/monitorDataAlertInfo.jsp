@@ -51,7 +51,7 @@
                         <th>监测类型</th>
                         <th>传感器名称</th>
                         <th>测量值</th>
-                        <th>允许误差</th>
+                        <th>偏差值</th>
                         <th style="width: 20px;">上限</th>
                         <th style="width: 20px;">下限</th>
                         <th>是否发送邮件</th>
