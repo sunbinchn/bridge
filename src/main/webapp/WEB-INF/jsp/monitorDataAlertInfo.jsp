@@ -11,7 +11,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>桥梁监测系统-用户管理</title>
+    <title>桥梁监测系统-预警信息</title>
     <%@ include file="common.jsp" %>
     <link href="${PATH}static/js/datetime/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <script src="${PATH}static/js/datetime/moment-with-locales.js"></script>

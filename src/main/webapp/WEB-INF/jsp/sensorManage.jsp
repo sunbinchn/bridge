@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>桥梁监测系统-监测点设置</title>
+    <title>桥梁监测系统-传感器设置</title>
     <%@ include file="common.jsp" %>
     <script src="${PATH}static/js/sensorManage.js"></script>
 </head>

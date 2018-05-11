@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>桥梁监测系统-传感器类型</title>
+    <title>桥梁监测系统-传感器信息</title>
     <%@ include file="common.jsp" %>
     <script src="${PATH}static/js/sensorTypeManage.js"></script>
 </head>

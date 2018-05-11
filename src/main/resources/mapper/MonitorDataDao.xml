@@ -27,7 +27,7 @@
     <select id="findAllAlertByCriteria" resultMap="monitorDataMapper" parameterType="com.bridge.vo.criteria.MonitorDataCriteria">
         select d.* from tb_monitor_data d,tb_sensor s,tb_monitor_type m
         where d.sensor_id=s.id and s.monitor_type_id = m.id and
-        (d.measurements+d.deviation > m.hial or d.measurements-d.deviation &lt; m.loal)
+        (d.measurements > m.hial or d.measurements &lt; m.loal)
         and s.user_id=#{userId}
          <if test="fromDate != null">
              and create_time &gt;= #{fromDate}
