@@ -14,7 +14,7 @@ $(function () {
             data: data,
             success: function (result) {
                 if (result.success) {
-                    window.location.href = '/bridge/userManage/getAll'
+                    window.location.href = '/bridge/monitorInfoData/getAll'
                 } else {
                     $('.form-signin-heading').text(result.message);
                 }
