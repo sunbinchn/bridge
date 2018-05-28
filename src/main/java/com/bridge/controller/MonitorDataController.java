@@ -24,7 +24,7 @@ import java.util.Date;
 @Controller
 @RequestMapping("monitorData")
 public class MonitorDataController {
-    private static final long EMAIL_INTERVAL = 5 * 60 * 1000; //五分钟
+    private static final long EMAIL_INTERVAL = 60 * 60 * 1000; //一小时
 
     @Autowired
     private MonitorDataDao monitorDataDao;
